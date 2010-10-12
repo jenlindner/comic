@@ -1,0 +1,160 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateComics (20101012015956)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "comics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101012015956')[0m
+Migrating to CreatePanels (20101012020003)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "panels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101012020003')[0m
+Migrating to AddColumnsToPanel (20101012022435)
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: no such table: panel: ALTER TABLE "panel" ADD "comic_id" integer[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePanels (20101012020003)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mDROP TABLE "panels"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20101012020003'[0m
+Migrating to CreateComics (20101012015956)
+  [4;35;1mSQL (0.6ms)[0m   [0mDROP TABLE "comics"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20101012015956'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateComics (20101012015956)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCREATE TABLE "comics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101012015956')[0m
+Migrating to CreatePanels (20101012020003)
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE TABLE "panels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101012020003')[0m
+Migrating to AddColumnsToPanel (20101012022435)
+  [4;35;1mSQL (0.4ms)[0m   [0mALTER TABLE "panels" ADD "comic_id" integer[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mALTER TABLE "panels" ADD "sort_order" integer[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mALTER TABLE "panels" ADD "modified_image_file_name" varchar(255)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mALTER TABLE "panels" ADD "original_image_file_name" varchar(255)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mALTER TABLE "panels" ADD "original_image_content_type" varchar(255)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mALTER TABLE "panels" ADD "original_image_file_size" integer[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mALTER TABLE "panels" ADD "original_image_updated_at" datetime[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101012022435')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("comics")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("panels")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateComics (20101012015956)
+Migrating to CreatePanels (20101012020003)
+Migrating to AddColumnsToPanel (20101012022435)
+Migrating to AddTitleToComic (20101012023617)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mALTER TABLE "comics" ADD "title" varchar(255)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101012023617')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("comics")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("panels")[0m
+  [4;36;1mComic Create (1.4ms)[0m   [0;1mINSERT INTO "comics" ("created_at", "title", "updated_at") VALUES('2010-10-12 02:45:48', 'hello hello', '2010-10-12 02:45:48')[0m
+
+
+Processing ComicsController#index (for 127.0.0.1 at 2010-10-11 21:46:23) [GET]
+  [4;36;1mComic Load (0.5ms)[0m   [0;1mSELECT * FROM "comics" [0m
+Rendering comics/index
+
+ActionView::TemplateError (undefined method `comic_path' for #<ActionView::Base:0x1033e9460>) on line #3 of app/views/comics/index.html.erb:
+1: <ul>
+2: <% @comics.each do |c| %>
+3: 	<li><%= link_to c.title, c %></li>
+4: 	
+5: <% end %>
+6: 
+
+    app/views/comics/index.html.erb:3
+    app/views/comics/index.html.erb:2:in `each'
+    app/views/comics/index.html.erb:2
+
+Rendered rescues/_trace (113.4ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ComicsController#index (for 127.0.0.1 at 2010-10-11 21:47:35) [GET]
+  [4;36;1mComic Load (0.5ms)[0m   [0;1mSELECT * FROM "comics" [0m
+Rendering comics/index
+Completed in 13ms (View: 9, DB: 1) | 200 OK [http://localhost/comics]
+
+
+Processing ComicsController#show (for 127.0.0.1 at 2010-10-11 21:47:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mComic Load (0.1ms)[0m   [0mSELECT * FROM "comics" WHERE ("comics"."id" = 1) [0m
+
+ActionView::MissingTemplate (Missing template comics/show.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
