@@ -158,3 +158,60 @@ ActionView::MissingTemplate (Missing template comics/show.erb in view path app/v
   
 
 Rendering rescues/layout (internal_server_error)
+
+
+Processing ComicsController#index (for 127.0.0.1 at 2010-10-11 21:59:43) [GET]
+  [4;36;1mComic Load (0.5ms)[0m   [0;1mSELECT * FROM "comics" [0m
+Rendering comics/index
+Completed in 69ms (View: 65, DB: 0) | 200 OK [http://localhost/comics]
+
+
+Processing ComicsController#index (for 127.0.0.1 at 2010-10-11 21:59:45) [GET]
+  [4;35;1mComic Load (0.4ms)[0m   [0mSELECT * FROM "comics" [0m
+Rendering comics/index
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/comics]
+
+
+Processing ComicsController#index (for 127.0.0.1 at 2010-10-11 22:00:12) [GET]
+  [4;36;1mComic Load (0.4ms)[0m   [0;1mSELECT * FROM "comics" [0m
+Rendering comics/index
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://localhost/comics]
+
+
+Processing ComicsController#create (for 127.0.0.1 at 2010-10-11 22:00:17) [POST]
+  Parameters: {"commit"=>"Submit!", "authenticity_token"=>"+FauL9yqzTS1Y1j+9K0bl1eDe3VDuzu6Fd4jpyXgeuM=", "comic"=>{"title"=>"amazing"}}
+
+ActionView::MissingTemplate (Missing template comics/create.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ComicsController#index (for 127.0.0.1 at 2010-10-11 22:03:47) [GET]
+  [4;35;1mComic Load (0.4ms)[0m   [0mSELECT * FROM "comics" [0m
+Rendering comics/index
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/comics]
+
+
+Processing ComicsController#create (for 127.0.0.1 at 2010-10-11 22:03:54) [POST]
+  Parameters: {"commit"=>"Submit!", "authenticity_token"=>"+FauL9yqzTS1Y1j+9K0bl1eDe3VDuzu6Fd4jpyXgeuM=", "comic"=>{"title"=>"super amazing"}}
+  [4;36;1mComic Create (0.5ms)[0m   [0;1mINSERT INTO "comics" ("created_at", "title", "updated_at") VALUES('2010-10-12 03:03:54', 'super amazing', '2010-10-12 03:03:54')[0m
+Redirected to http://localhost:3000/comics/2
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/comics]
+
+
+Processing ComicsController#show (for 127.0.0.1 at 2010-10-11 22:03:54) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mComic Load (0.1ms)[0m   [0mSELECT * FROM "comics" WHERE ("comics"."id" = 2) [0m
+
+ActionView::MissingTemplate (Missing template comics/show.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ComicsController#show (for 127.0.0.1 at 2010-10-11 22:04:27) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mComic Load (0.1ms)[0m   [0;1mSELECT * FROM "comics" WHERE ("comics"."id" = 2) [0m
+Rendering comics/show
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/comics/2]

@@ -3,5 +3,12 @@
 	<li><%= link_to c.title, c %></li>
 	
 <% end %>
-
 </ul>
+
+<% form_for Comic.new do |f| %>
+	
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<%= f.submit "Submit!" %>	
+	
+<% end %>
