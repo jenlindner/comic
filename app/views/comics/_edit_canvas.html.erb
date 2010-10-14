@@ -1,26 +1,21 @@
 <div id="workspace">
-<% if @panel %>
-	<%= image_tag @panel.original_image.url(:medium), :id => "#{@panel.id}", :html => {:id => "img"} %>
-<% end %>
-	<canvas id="canvas" height="200" width="300">nope</canvas>	
-	</div>
-
-	<div id="workspace_controllers">
-	<button id="draw">draw</button>
-	<button id="zoom">Zoom</button>
-	<button id="export_art">Download Art</button>
-	<button id="clear_canvas">Clear Canvas</button> 
-	<%= link_to "Comic", comic_path(:id => @comic.id) %> 
-	<% form_for :panel, @panel || Panel.new, :url => panels_path, :html => {:id => "art_form"} do |f| %>
-	  <%= f.error_messages %>
-		<p>
-			<%= hidden_field_tag :panel, :id => "my_panel" %>
-			<%= f.hidden_field :comic_id, :value => @comic.id %>
-			<%= f.hidden_field :original, :value => @original ? @original.id  : "" %>
-	  </p>
-	  <p>
-	    <%= f.submit 'Make Comic Panel' %>
-	  </p>
+	<% if @panel %>
+		<%= image_tag @panel.original_image.url(:medium), :id => "#{@panel.id}" %>
 	<% end %>
-
+	<canvas id="canvas">nope</canvas>	
 </div>
+
+<ul id="workspace_controllers" class='inline_list'>
+ <li><button id="draw">draw</button></li>
+ <li><button id="zoom">Zoom</button></li>
+ <li><button id="export_art">Download Art</button></li>
+ <li><button id="clear_canvas">Clear Canvas</button></li> 
+ <li><%= link_to "Comic", comic_path(:id => @comic.id) %></li>
+ <li>
+		<% form_for @panel, :html => {:id => "art_form"} do |f| %>
+			<%= hidden_field_tag :my_panel %>
+			<%= f.hidden_field :comic_id, :value => @comic.id %>
+		 	<%= f.submit 'Make Comic Panel' %>
+		<% end %>
+	</li>
+</ul>

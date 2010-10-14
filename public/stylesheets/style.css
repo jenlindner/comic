@@ -61,21 +61,24 @@ a:hover { color: #fff; background-color:#000; }
 }
 
 canvas{
-	border: 1px solid #000; 
-	margin:0;
+	border: 0px solid #000; 
+	margin-right: .25em;
 	padding:0;
 	height: 200px;
 	width:300px;
+	float: left;
 }
 
 #workspace_controllers{
 	position: relative;	
-	top: 40px;
+	top: 0px;
 }
 
 #workspace{
 	position: relative;
-	top: 40px;
+	top: 0px;
+	border:black solid 1px;
+	height: 230px;
 }
 
 #panels{
@@ -85,11 +88,7 @@ canvas{
 }
 
 .inline_list{
-	width: 960px;
-	border: black solid 1px;
-	margin-top: 60px;
-	padding-left: 0px;
-	height: 200px;
+	display: inline;
 }
 
 .inline_list li{
@@ -98,8 +97,13 @@ canvas{
 	margin-left: 5px;
 	list-style-type:none;
 }
+
 .dialog{
 	display:none;
+}
+
+#art_form{
+	width: 100px;
 }
 
 
