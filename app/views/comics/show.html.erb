@@ -1,7 +1,7 @@
 <%= @comic.title %>
 
 <%if @panels %>
-  <ul class="inline_list sortable">
+  <ul class="inline_list sortable" id="<%= @comic.id %>">
 	  <%= render :partial=> "edit_panel", :collection => @panels %>
   </ul>
 <% end %>

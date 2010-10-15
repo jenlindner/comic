@@ -17,13 +17,19 @@ class ComicsController < ApplicationController
   def show
     @comic = Comic.find(params[:id])
     if @comic.panels
-      @panels = @comic.panels  
-      @panel = @comic.panels.last
+      @panels = @comic.panels.all(:order => :sort_order)  
     end
   end
   
   def edit
     @comic = Comic.find(params[:id])
   end
+  
+  def reorder
+    params[:panels].each_with_index do |item, index|
+      Panel.find(item).update_attributes(:sort_order => index)
+    end
+    render :text => ""    
+  end  
   
 end

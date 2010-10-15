@@ -13,7 +13,14 @@ function setEverythingUp($){
 }
 
 $(document).ready( function(){ 
-	$(".sortable").sortable({handle: "img.drag" })
+	$(".sortable").sortable({
+		handle: "img.drag", 
+		update: function(event, ui){
+			var list = $(ui.item).parents(".sortable");
+			console.log(list.sortable("serialize"));
+			$.post('/comics/' + list.attr("id") + '/reorder',list.sortable("serialize"));
+		}
+	});
 	
 	$(".draw").click(function(){
 		console.log($(this).parents("ul.workspace_controllers"));
