@@ -1,25 +1,13 @@
 <%= @comic.title %>
 
+<%if @panels %>
+  <ul class="inline_list sortable">
+	  <%= render :partial=> "edit_panel", :collection => @panels %>
+  </ul>
+<% end %>
+
 <button id="add_panel">Add Panel</button>
-
 <div id="new_panel_dialog" title="Add a Panel" class="dialog">
-	<p>Here's where you can upload an image to your comicbook and begin giving it amazing comic-book-like effects.</p>
-	<% form_for :panel, @panel, :url => panels_path, :html => {:multipart => true, :id => "upload_photo_form" } do |f| %>
-	  <%= f.error_messages %>
-
-	  <p>
-			<%= f.hidden_field :comic_id, :value => @comic.id %>
-	  </p>
-		<p>
-			<%= f.file_field :original_image %>
-	  </p>
-	  <p>
-	    <%= f.submit 'Create' %>
-	  </p>
-	<% end %>
+<%= render :partial => "add_panel" %>
 </div>
 
-<button id="edit_panel">Edit Panel</button>
-<div id="edit_panel_dialog" class="dialog">
-	<%= render :partial=> "edit_canvas" %>
-</div>

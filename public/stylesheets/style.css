@@ -69,16 +69,20 @@ canvas{
 	float: left;
 }
 
-#workspace_controllers{
+.workspace_controllers{
 	position: relative;	
 	top: 0px;
 }
 
-#workspace{
+.workspace{
 	position: relative;
 	top: 0px;
 	border:black solid 1px;
 	height: 230px;
+}
+
+img.drag{
+	cursor: move;
 }
 
 #panels{
@@ -106,7 +110,9 @@ canvas{
 	width: 100px;
 }
 
-
+button.edit_panel {
+	display:block;
+}
 
 
 

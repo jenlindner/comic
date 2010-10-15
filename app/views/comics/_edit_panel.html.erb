@@ -1,0 +1,28 @@
+<li>	
+	<%= image_tag edit_panel.original_image.url(:medium), :class => "drag" %>
+	<!-- this implies some changes. think. -->
+	<button class="edit_panel">Edit Panel</button>
+	<div class="edit_panel_dialog dialog">
+		<div class="workspace">
+			<% if edit_panel %>
+				<%= image_tag edit_panel.original_image.url(:medium), :id => "#{edit_panel.id}"  %>
+			<% end %>
+			<canvas id="canvas">nope</canvas>	
+		</div>
+
+		<ul class="workspace_controllers inline_list">
+		 <li><button class="draw">draw</button></li>
+		 <li><button id="zoom">Zoom</button></li>
+		 <li><button id="export_art">Download Art</button></li>
+		 <li><button id="clear_canvas">Clear Canvas</button></li> 
+		 <li><%= link_to "Comic", comic_path(:id => @comic.id) %></li>
+		 <li>
+				<% form_for edit_panel, :html => {:id => "art_form"} do |f| %>
+					<%= hidden_field_tag :my_panel %>
+					<%= f.hidden_field :comic_id, :value => @comic.id %>
+				 	<%= f.submit 'Make Comic Panel' %>
+				<% end %>
+			</li>
+		</ul>
+	</div>
+</li>

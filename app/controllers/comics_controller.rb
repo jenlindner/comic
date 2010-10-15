@@ -16,7 +16,10 @@ class ComicsController < ApplicationController
   
   def show
     @comic = Comic.find(params[:id])
-    @panel = @comic.panels.last
+    if @comic.panels
+      @panels = @comic.panels  
+      @panel = @comic.panels.last
+    end
   end
   
   def edit

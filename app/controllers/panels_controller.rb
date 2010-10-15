@@ -2,8 +2,10 @@ class PanelsController < ApplicationController
   
   def create
     @panel = Panel.new(params[:panel])
+    puts @panel.save!
     if @panel.save
       flash[:original_id] = @panel.id
+      
       redirect_to @panel.comic
     else
       render :action => "new" 
@@ -37,6 +39,7 @@ class PanelsController < ApplicationController
     image = Magick::Image.from_blob(blob) 
     image[0].write("public/images/comics/panel_id_#{@panel.id}.png")
     @panel.save
+    redirect_to @panel.comic
   end
 
   def destroy
