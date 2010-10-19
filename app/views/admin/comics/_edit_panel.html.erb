@@ -1,0 +1,27 @@
+<li id="panels_<%= edit_panel.id %>" data-panel-id="<%= edit_panel.id %>" class="border">	
+	<%= image_tag edit_panel.original_image.url(:medium), :class => "drag" %>
+	<button class="edit_panel">Edit Panel</button>
+	<button class="delete_panel" data-remote-url="<%= admin_comic_panel_url(@comic, edit_panel) %>" data-confirm="Are you sure?">Delete Panel</button>
+	<div class="edit_panel_dialog dialog">
+		<div class="workspace">
+			<% if edit_panel %>
+				<%= image_tag edit_panel.original_image.url(:medium), :id => "#{edit_panel.id}"  %>
+			<% end %>
+			<canvas class="canvas">nope</canvas>	
+		</div>
+
+		<ul class="workspace_controllers inline_list">
+		 <li><button class="pixelate" data-remote-url="<%= pixelate_admin_comic_panel_url(@comic, edit_panel) %>">Pixelate</button></li>
+		 <li><button class="zoom" data-remote-url="<%= zoom_admin_comic_panel_url(@comic, edit_panel) %>">Zoom</button></li>
+		 <li><button class="export_art">Download Panel</button></li>
+		 <li><button class="clear_canvas">Clear Canvas</button></li> 
+		 <li>
+				<% form_for edit_admin_comic_panel_path(@comic), :html => {:id => "art_form"} do |f| %>
+					<%= hidden_field_tag :my_panel %>
+					<%= f.hidden_field :comic_id, :value => @comic.id %>
+				 	<%= f.submit 'Save Panel' %>
+				<% end %>
+			</li>
+		</ul>
+	</div>
+</li>
