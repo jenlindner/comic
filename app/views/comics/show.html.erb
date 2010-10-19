@@ -1,4 +1,5 @@
-<%= @comic.title %>
+<h1><%= @comic.title %></h1>	
+<p id="add_panel">Add New Panel to <%= @comic.title %></p>
 
 <%if @panels %>
   <ul class="inline_list sortable" id="<%= @comic.id %>">
@@ -6,7 +7,7 @@
   </ul>
 <% end %>
 
-<button id="add_panel">Add Panel</button>
+
 <div id="new_panel_dialog" title="Add a Panel" class="dialog">
 <%= render :partial => "add_panel" %>
 </div>

@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'jazz_money'
+
+javascript_files = [
+ 'public/javascripts/jquery-1.4.2.min.js',
+ 'public/javascripts/jquery-ui-1.8.5.custom.min.js',
+ 'public/javascripts/application.js', 
+]
+
+jasmine_spec_files = [
+ 'spec/javascripts/ComicSpec.js'
+]
+
+JazzMoney::Runner.new(javascript_files, jasmine_spec_files).call

@@ -5,15 +5,14 @@ class PanelsController < ApplicationController
     puts @panel.save!
     if @panel.save
       flash[:original_id] = @panel.id
-      
       redirect_to @panel.comic
     else
       render :action => "new" 
     end
   end
   
-  def draw
-    @panel = Panel.find(params[:panel_id])
+  def pixelate
+    @panel = Panel.find(params[:id])
     path = @panel.original_image.path(:medium)
     @photo_artist = PhotoArtist.new(path)
     @photo_artist.paint
@@ -21,7 +20,7 @@ class PanelsController < ApplicationController
   end
   
   def zoom
-    @panel = Panel.find(params[:panel_id])
+    @panel = Panel.find(params[:id])
     path = @panel.original_image.path(:medium)
     @photo_artist = PhotoArtist.new(path)
     @photo_artist.zoom(2)
@@ -45,6 +44,7 @@ class PanelsController < ApplicationController
   def destroy
     @panel = Panel.find(params[:id])
     @panel.destroy
+    redirect_to @panel.comic
   end
 
 end

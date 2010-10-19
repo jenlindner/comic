@@ -35,6 +35,7 @@ class PhotoArtist
   end
   
   def zoom(factor)
+    puts "hello jen zooming photo artist"
     width_and_height = @original.get_width_and_height_from_factor(factor) 
     cropped_image = @original.image.crop(Magick::CenterGravity, width_and_height.fetch("width"), width_and_height.fetch("height"))
     zoomed_image = cropped_image.resize(300,200) 
@@ -59,7 +60,7 @@ class PhotoArtist
         pixels = @original.image.get_pixels((x * 5), (y * 5), 5, 5)
         colors_of_row << darkest_pixels(pixels)
       end
-      Pusher["image_data"].trigger("begin_painting", :y => (y * 5), :colors => colors_of_row)
+       Pusher["image_data"].trigger("begin_painting", :y => (y * 5), :colors => colors_of_row)
     end
   end
  
