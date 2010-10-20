@@ -22,6 +22,7 @@ class PanelsController < ApplicationController
   
   def zoom
     path = @panel.original_image.path(:medium)
+    p PhotoArtist::SQUARE_SIZE
     @photo_artist = PhotoArtist.new(path)
     @photo_artist.zoom(2)
     redirect_to comic_path(@panel.comic)

@@ -3,9 +3,9 @@
 <% unless @disable %>
 <p id="add_panel">Add New Panel to <%= @comic.title %></p>
 <% end %>
-<%if @panels %>
+<%if @comic.panels %>
   <ul class="inline_list sortable" id="<%= @comic.id %>">
-	  <%= render :partial=> "edit_panel", :collection => @panels %>
+	  <%= render :partial=> "edit_panel", :collection => @comic.panels %>
   </ul>
 <% end %>
 

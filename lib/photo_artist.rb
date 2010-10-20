@@ -28,6 +28,7 @@ class PusherCredentials
 end
 
 class PhotoArtist
+  SQUARE_SIZE = 5
  
   def initialize(path)
     pusher = PusherCredentials.new
@@ -42,24 +43,24 @@ class PhotoArtist
   end
     
   def paint_zoom(image)
-    (image.rows / 5).times do |y|
+    (image.rows / SQUARE_SIZE).times do |y|
       colors_of_row = []
-      (image.columns / 5).times do |x|
-        pixels = image.get_pixels((x * 5), (y * 5), 5, 5)
+      (image.columns / SQUARE_SIZE).times do |x|
+        pixels = image.get_pixels((x * SQUARE_SIZE), (y * SQUARE_SIZE), SQUARE_SIZE, SQUARE_SIZE)
         colors_of_row << darkest_pixels(pixels)
       end
-      Pusher["image_data"].trigger("begin_painting", :y => (y * 5), :colors => colors_of_row )
+      Pusher["image_data"].trigger("begin_painting", :y => (y * SQUARE_SIZE), :colors => colors_of_row, :square_size => SQUARE_SIZE )
     end
   end  
   
   def paint
-    (@original.image.rows / 5).times do |y|
+    (@original.image.rows / SQUARE_SIZE).times do |y|
       colors_of_row = []
-      (@original.image.columns / 5).times do |x|
-        pixels = @original.image.get_pixels((x * 5), (y * 5), 5, 5)
+      (@original.image.columns / SQUARE_SIZE).times do |x|
+        pixels = @original.image.get_pixels((x * SQUARE_SIZE), (y * SQUARE_SIZE), SQUARE_SIZE, SQUARE_SIZE)
         colors_of_row << darkest_pixels(pixels)
       end
-       Pusher["image_data"].trigger("begin_painting", :y => (y * 5), :colors => colors_of_row)
+       Pusher["image_data"].trigger("begin_painting", :y => (y * SQUARE_SIZE), :colors => colors_of_row, :square_size => SQUARE_SIZE)
     end
   end
  

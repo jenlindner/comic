@@ -1,7 +1,5 @@
 class ComicsController < ApplicationController
   
-  before_filter :faux_login_required, :only => :show
-  
   def index
     @comics = Comic.all
   end
@@ -33,14 +31,5 @@ class ComicsController < ApplicationController
     end
     render :text => ""    
   end  
-  
-  protected
-  
-  def faux_login_required
-    # want to disable sortability and not show add panel blink, or edit and delete buttons in panels
-    @disable = true
-    #put this into javascript as well, a "disable" class to attach instead of sortable based on
-    # faux variable
-  end
   
 end

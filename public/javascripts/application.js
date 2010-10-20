@@ -13,9 +13,10 @@ function bindPaintToPusher(canvas, paint){
 	console.log("bind "+ canvas)
 	paint.bind('begin_painting', function(data){
 		var x = 0;
+		var square_size = data.square_size
 		data.colors.forEach(function(color) {
-			seurrat.color(canvas, x, data.y, color, 5);
-			x += 5;
+			seurrat.color(canvas, x, data.y, color, square_size);
+			x += square_size;
 		});
 	});
 }
@@ -23,19 +24,13 @@ function bindPaintToPusher(canvas, paint){
 $(document).ready( function(){ 
 	var paint = createPusher();	
 	var disable = $("#disable").attr("data-disable");
-	console.log(disable);
-	if (disable){
-		$("img.drag").css("cursor", "default");
-	}else{
-		$(".sortable").sortable({
-			handle: "img.drag", 
-			update: function(event, ui){
-				var list = $(ui.item).parents(".sortable");
-				console.log(list.sortable("serialize"));
-				$.post('/comics/' + list.attr("id") + '/reorder',list.sortable("serialize"));
-			}
-		});
-}	
+	$(".sortable").sortable({
+		handle: "img.drag", 
+		update: function(event, ui){
+			var list = $(ui.item).parents(".sortable");
+			$.post('/comics/' + list.attr("id") + '/reorder',list.sortable("serialize"));
+		}
+	});
 	$(".pixelate").click(function(){
 		console.log($(this).parent("li").attr("data-panel-id"));
 		bindPaintToPusher($(this).parents(".edit_panel_dialog").find(".canvas")[0], paint);
