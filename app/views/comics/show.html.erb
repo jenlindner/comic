@@ -1,6 +1,8 @@
-<h1><%= @comic.title %></h1>	
+<h1><%= @comic.title %></h1>
+<span id="disable" data-disable="<%= @disable %>"></span>	
+<% unless @disable %>
 <p id="add_panel">Add New Panel to <%= @comic.title %></p>
-
+<% end %>
 <%if @panels %>
   <ul class="inline_list sortable" id="<%= @comic.id %>">
 	  <%= render :partial=> "edit_panel", :collection => @panels %>

@@ -22,15 +22,20 @@ function bindPaintToPusher(canvas, paint){
 
 $(document).ready( function(){ 
 	var paint = createPusher();	
-	$(".sortable").sortable({
-		handle: "img.drag", 
-		update: function(event, ui){
-			var list = $(ui.item).parents(".sortable");
-			console.log(list.sortable("serialize"));
-			$.post('/comics/' + list.attr("id") + '/reorder',list.sortable("serialize"));
-		}
-	});
-	
+	var disable = $("#disable").attr("data-disable");
+	console.log(disable);
+	if (disable){
+		$("img.drag").css("cursor", "default");
+	}else{
+		$(".sortable").sortable({
+			handle: "img.drag", 
+			update: function(event, ui){
+				var list = $(ui.item).parents(".sortable");
+				console.log(list.sortable("serialize"));
+				$.post('/comics/' + list.attr("id") + '/reorder',list.sortable("serialize"));
+			}
+		});
+}	
 	$(".pixelate").click(function(){
 		console.log($(this).parent("li").attr("data-panel-id"));
 		bindPaintToPusher($(this).parents(".edit_panel_dialog").find(".canvas")[0], paint);
