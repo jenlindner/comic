@@ -1,31 +1,6 @@
 require 'pusher'
 require 'RMagick'
-
-
-class ImageObject
-  attr_accessor :image
-  
-  def initialize(path)
-    @image = Magick::ImageList.new(path)
-  end
-  
-  def get_width_and_height_from_factor(factor)
-    width = @image.columns / factor
-    height = @image.rows / factor
-    width_and_height = {"width" => width, "height" => height}
-  end
-end
-
-
-class PusherCredentials
-  attr_accessor :app_id, :key, :secret
-  
-  def initialize
-    @app_id = Pusher.app_id = '1436'
-    @key = Pusher.key = '279b70cc663845e74c75'
-    @secret = Pusher.secret = '4491a3468b2f7d0ece6e'
-  end
-end
+require 'image_object'
 
 class PhotoArtist
   SQUARE_SIZE = 5
@@ -39,24 +14,14 @@ class PhotoArtist
     width_and_height = @original.get_width_and_height_from_factor(factor) 
     cropped_image = @original.image.crop(Magick::CenterGravity, width_and_height.fetch("width"), width_and_height.fetch("height"))
     zoomed_image = cropped_image.resize(300,200) 
-    paint_zoom(zoomed_image)
+    paint(zoomed_image)
   end
-    
-  def paint_zoom(image)
+  
+  def paint(*image)
+    image = image.empty? ? @original.image : image
     (image.rows / SQUARE_SIZE).times do |y|
       colors_of_row = []
       (image.columns / SQUARE_SIZE).times do |x|
-        pixels = image.get_pixels((x * SQUARE_SIZE), (y * SQUARE_SIZE), SQUARE_SIZE, SQUARE_SIZE)
-        colors_of_row << darkest_pixels(pixels)
-      end
-      Pusher["image_data"].trigger("begin_painting", :y => (y * SQUARE_SIZE), :colors => colors_of_row, :square_size => SQUARE_SIZE )
-    end
-  end  
-  
-  def paint
-    (@original.image.rows / SQUARE_SIZE).times do |y|
-      colors_of_row = []
-      (@original.image.columns / SQUARE_SIZE).times do |x|
         pixels = @original.image.get_pixels((x * SQUARE_SIZE), (y * SQUARE_SIZE), SQUARE_SIZE, SQUARE_SIZE)
         colors_of_row << darkest_pixels(pixels)
       end

@@ -13,3 +13,5 @@ end
 # need the two more features at least need to be able to add text. fix aspect ratio of 
 # panels. push to github. write list of everyting you've done. finish design make nav layout. 
 # grid
+
+# made pusher credentials an initializer - sweet! gets loaded automatically.
