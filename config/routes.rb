@@ -6,4 +6,8 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
   
+  map.resources :comics, :member => {:reorder => :post} do |comic| 
+    comic.resources :panels, :member => {:zoom => :post, :pixelate => :post}
+  end
+  
 end

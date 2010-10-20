@@ -33,7 +33,6 @@ class Admin::PanelsController < ApplicationController
   def update
     blob, = Datafy::decode_data_uri(params[:my_panel]) 
     @panel = Panel.find(params[:id])
-    @panel.comic_id = params[:panel][:comic_id] 
     @panel.modified_image_file_name = "panel_id_#{@panel.id}.png"
     image = Magick::Image.from_blob(blob) 
     image[0].write("public/images/comics/panel_id_#{@panel.id}.png")

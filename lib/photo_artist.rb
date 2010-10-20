@@ -35,7 +35,6 @@ class PhotoArtist
   end
   
   def zoom(factor)
-    puts "hello jen zooming photo artist"
     width_and_height = @original.get_width_and_height_from_factor(factor) 
     cropped_image = @original.image.crop(Magick::CenterGravity, width_and_height.fetch("width"), width_and_height.fetch("height"))
     zoomed_image = cropped_image.resize(300,200) 
