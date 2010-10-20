@@ -1,11 +1,11 @@
 <ul>
 <% @comics.each do |c| %>
-	<li><%= link_to c.title, c %></li>
+	<li><%= link_to c.title, comic_path(c) %></li>
 	
 <% end %>
 </ul>
 
-<% form_for Comic.new do |f| %>
+<% form_for Comic.new, :url => comics_path do |f| %>
 	
 	<%= f.label :title %>
 	<%= f.text_field :title %>

@@ -1,7 +1,7 @@
 body { background-color: #c9c9c9; color: #000; }
 
 body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: georgia, sans-serif;
   font-size:   13px;
   line-height: 18px;
 }
@@ -52,13 +52,6 @@ a:hover { color: #fff; background-color:#000; }
   list-style: square;
 }
 
-#comic_strip{
-	width: 816px;
-	height: 202px;
-	border-top: 1px solid #000; 
-	border-bottom: 1px solid #000; 
-	border-left: 1px solid #000;	
-}
 
 canvas{
 	border: 0px solid #000; 
@@ -93,6 +86,7 @@ img.drag{
 	display: inline;
 	float: left;
 	margin-left: 5px;
+	margin-bottom: 5px;
 	list-style-type:none;
 }
 

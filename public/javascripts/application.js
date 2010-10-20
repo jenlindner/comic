@@ -60,8 +60,9 @@ $(document).ready( function(){
 
 	$("#art_form").live("submit", function(){
 		var canvas = $(this).parents(".edit_panel_dialog").find(".canvas")[0];
-		$(this).parents(".edit_panel_dialog").parents("li").find("img").first().attr("src", canvas.toDataURL());
-		$(this).parents(".edit_panel_dialog").dialog("close");
+		var el_panel_id = "#"+ $(this).parents(".edit_panel_dialog").attr("data-panel-element-id");
+		$(el_panel_id).find("img").attr("src", canvas.toDataURL());
+		$(this).parents(".edit_panel_dialog").dialog('close');
 		$.ajax({
 			type: "put",
 			url:$(this).attr('action'),
@@ -78,7 +79,8 @@ $(document).ready( function(){
 	});
 
 	$(".edit_panel").live("click", function(){
-		$(this).parent().find('.edit_panel_dialog').dialog( {minWidth: 660, width: 660, height: 320} );
+		$(this).parent().find('.edit_panel_dialog').dialog( {minWidth: 660, width: 660, height: 320} ).dialog("open");
+		
 	});
 
 	$(".delete_panel").click(function(){

@@ -1,5 +1,7 @@
 class ComicsController < ApplicationController
   
+  before_filter :faux_login_required => :show
+  
   def index
     @comics = Comic.all
   end
@@ -31,5 +33,12 @@ class ComicsController < ApplicationController
     end
     render :text => ""    
   end  
+  
+  private
+  
+  def faux_login_required
+    # github authbuttons
+    false
+  end
   
 end
