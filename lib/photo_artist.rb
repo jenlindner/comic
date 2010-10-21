@@ -18,7 +18,8 @@ class PhotoArtist
   end
   
   def paint(*image)
-    image = image.empty? ? @original.image : image
+    image = image.empty? ? @original.image : image[0]
+    
     (image.rows / SQUARE_SIZE).times do |y|
       colors_of_row = []
       (image.columns / SQUARE_SIZE).times do |x|

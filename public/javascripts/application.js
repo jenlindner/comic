@@ -4,7 +4,6 @@
 
 function createPusher(){
 	var paint = new Pusher('279b70cc663845e74c75', 'image_data');	
-//	var paint = push;
 	return paint;
 }
 
@@ -79,7 +78,8 @@ $(document).ready( function(){
 	});
 
 	$(".edit_panel").live("click", function(){
-		$(this).parent().find('.edit_panel_dialog').dialog( {minWidth: 660, width: 660, height: 320} ).dialog("open");
+		// console.log($(this).parents().find('.edit_panel_dialog'));
+		$(this).parent().parent().find('.edit_panel_dialog').dialog( {minWidth: 660, width: 660, height: 320} ).dialog("open");
 		
 	});
 
