@@ -1,8 +1,10 @@
-body { background-color: #c9c9c9; color: #000; }
+body { background-color: #999; color: #000; }
 
 ul, ul .panel_buttons {
  list-style-type: none;
 }
+
+h1.title{color: #f93;}
 
 ul .panel_buttons {
 	margin: .1em auto;
@@ -18,7 +20,7 @@ pre {
 
 a { color: #000; text-decoration: none;}
 a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+a:hover { color: #fff; background-color:#f90; }
 
 .fieldWithErrors {
   padding: 2px;
@@ -63,27 +65,27 @@ canvas{
 	padding:0;
 	height: 200px;
 	width:300px;
-	float: left;
+	float: right;
 }
 
-.workspace_controllers{
+ .workspace_controllers {
 	position: relative;	
 	top: 0px;
+	margin: 1em auto;
+	height: 2em;
+	width: 33em;
+	padding-left:0;
 }
 
 .workspace{
 	position: relative;
 	top: 0px;
 	border:black solid 2px;
-	height: 230px;
+	height: 200px;
 }
 
 img.drag{
 	cursor: move;
-}
-
-.inline_list{
-	display: inline;
 }
 
 .inline_list li{
@@ -119,6 +121,16 @@ button, .default_button{
 	 border-radius: 4px;
 	 background: #ccc;
 	 -webkit-box-shadow: inset 0 5px 10px #999, 0 1px 1px #999;
+}
+
+button:hover, .default_button:hover{
+	background-color: #f93;
+	-webkit-box-shadow: inset 0 5px 10px #c60, 0 1px 1px #c60;
+}
+
+
+button:focus, .default_button:focus {
+  outline-width:0;
 }
 
 .ui-widget { font-size: 1em; }

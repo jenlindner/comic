@@ -79,7 +79,7 @@ $(document).ready( function(){
 
 	$(".edit_panel").live("click", function(){
 		// console.log($(this).parents().find('.edit_panel_dialog'));
-		$(this).parent().parent().find('.edit_panel_dialog').dialog( {minWidth: 660, width: 660, height: 320} ).dialog("open");
+		$(this).parent().parent().find('.edit_panel_dialog').dialog( {minWidth: 660, width: 660, height: 322} ).dialog("open");
 		
 	});
 
