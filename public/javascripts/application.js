@@ -60,6 +60,8 @@ $(document).ready( function(){
 	$("#art_form").live("submit", function(){
 		var canvas = $(this).parents(".edit_panel_dialog").find(".canvas")[0];
 		var el_panel_id = "#"+ $(this).parents(".edit_panel_dialog").attr("data-panel-element-id");
+		$(el_panel_id).find("img").attr("height", 200);
+		$(el_panel_id).find("img").attr("width", 300);
 		$(el_panel_id).find("img").attr("src", canvas.toDataURL());
 		$(this).parents(".edit_panel_dialog").dialog('close');
 		$.ajax({
