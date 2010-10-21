@@ -133,6 +133,10 @@ button:focus, .default_button:focus {
   outline-width:0;
 }
 
+input:focus {
+  outline-width:0;
+}
+
 .ui-widget { font-size: 1em; }
 
 .main_container{
