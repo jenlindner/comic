@@ -73,7 +73,7 @@ canvas{
 	top: 0px;
 	margin: 1em auto;
 	height: 2em;
-	width: 33em;
+	width: 36em;
 	padding-left:0;
 }
 
@@ -115,7 +115,7 @@ img.drag{
 	border: solid 2px #000;
 }
 
-button, .default_button{
+button, .default_button, submit{
 	 border: none;
 	 padding: 5px 10px;
 	 border-radius: 4px;
@@ -123,6 +123,9 @@ button, .default_button{
 	 -webkit-box-shadow: inset 0 5px 10px #999, 0 1px 1px #999;
 }
 
+.workspace_controllers button, .workspace_controllers .default_button{
+	 font-size: .8em;
+}
 button:hover, .default_button:hover{
 	background-color: #f93;
 	-webkit-box-shadow: inset 0 5px 10px #c60, 0 1px 1px #c60;
@@ -140,7 +143,7 @@ input:focus {
 .ui-widget { font-size: 1em; }
 
 .main_container{
-	width: 60em;
+	width: 62em;
 	margin: 0 auto;
 	margin-top: 4em;
 	background-color: #fff;

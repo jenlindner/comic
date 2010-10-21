@@ -27,6 +27,13 @@ class PanelsController < ApplicationController
     redirect_to comic_path(@panel.comic)
   end
 
+  def delineate
+    path = @panel.original_image.path(:medium)
+    @photo_artist = PhotoArtist.new(path)
+    @photo_artist.find_edges
+    redirect_to comic_path(@panel.comic)
+  end
+
   def edit
   end
 

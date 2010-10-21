@@ -1,4 +1,4 @@
-<p>Here's where you can upload an image to your comicbook and begin giving it amazing effects.</p>
+<p>Upload an image to add a panel to your comic.</p>
 <% form_for :panel, :url => comic_panels_path(@comic), :html => {:multipart => true, :id => "upload_photo_form" } do |f| %>
   <%= f.error_messages %>
 
@@ -9,6 +9,6 @@
 		<%= f.file_field :original_image %>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit 'Add Panel' , :class => "default_button" %>
   </p>
 <% end %>

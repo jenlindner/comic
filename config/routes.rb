@@ -1,13 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :comics, :member => {:reorder => :post} do |comic| 
-    comic.resources :panels, :member => {:zoom => :post, :pixelate => :post}
+    comic.resources :panels, :member => {:zoom => :post, :pixelate => :post, :delineate => :post}
   end
   
 end
 
 
-# kill fives make a constant put it into a config. pull classes out of photo.rb 
-# and make them their own files. give tenminute demo on sockets and pusher. 
+# give tenminute demo on sockets and pusher. 
 # maybe look at showoff in order to do demo. remember cool thing about this being able
 # to have people watch you make art.
 # need the two more features at least need to be able to add text. fix aspect ratio of 

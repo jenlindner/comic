@@ -17,9 +17,14 @@ class PhotoArtist
     paint(zoomed_image)
   end
   
+  def find_edges(*radius)
+    edged_image = @original.image.edge()
+    paint(edged_image)
+  end
+  
+  
   def paint(*image)
     image = image.empty? ? @original.image : image[0]
-    
     (image.rows / SQUARE_SIZE).times do |y|
       colors_of_row = []
       (image.columns / SQUARE_SIZE).times do |x|
@@ -28,6 +33,28 @@ class PhotoArtist
       end
        Pusher["image_data"].trigger("begin_painting", :y => (y * SQUARE_SIZE), :colors => colors_of_row, :square_size => SQUARE_SIZE)
     end
+  end
+  
+  
+  # def paint_single_pixel_high_row(*image)
+  def find_edges(*image)
+    image = @original.image.edge()
+    image.rows.times do |y|
+      colors_of_row = []
+      image.columns.times do |x|
+        pixels = image.get_pixels(x, y, 1, 1)
+        colors_of_row << rgb_pixels(pixels)
+      end
+      Pusher["image_data"].trigger("begin_painting", :y => y, :colors => colors_of_row, :square_size => 1)
+    end
+  end
+  
+  def rgb_pixels(pixels)
+    intense_pixel = nil
+    pixels.each do |p|
+      intense_pixel = p
+    end
+    "rgb(#{intense_pixel.red},#{intense_pixel.green},#{intense_pixel.blue})"
   end
  
   def darkest_pixels(pixels)

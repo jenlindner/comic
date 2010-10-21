@@ -47,6 +47,13 @@ $(document).ready( function(){
 		var href = $(this).attr("data-remote-url");
 	  $.post(href);
 	});
+	
+	$(".delineate").click(function(){
+		bindPaintToPusher($(this).parents(".edit_panel_dialog").find(".canvas")[0], paint);
+		var panel = $(this).parents(".edit_panel_dialog").find("img").first();
+		var href = $(this).attr("data-remote-url");
+	  $.post(href);
+	});	
 
 	$(".export_art").click(function(){
 		seurrat.export_art($("#canvas")[0]);
@@ -77,10 +84,10 @@ $(document).ready( function(){
 	
 	$("#add_panel").click(function(){
 		$("#new_panel_dialog").dialog();
+		//i want to make rows of three panels only.
 	});
 
 	$(".edit_panel").live("click", function(){
-		// console.log($(this).parents().find('.edit_panel_dialog'));
 		$(this).parent().parent().find('.edit_panel_dialog').dialog( {minWidth: 660, width: 660, height: 322} ).dialog("open");
 		
 	});
