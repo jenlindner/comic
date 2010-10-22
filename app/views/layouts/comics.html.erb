@@ -14,12 +14,13 @@
 	<link type="text/css" href="/stylesheets/style.css" rel="Stylesheet" />
 </head>
 <body>
-
 <div class="main_container">
+	<h1>
+		<span class="site_title"><%= link_to "Comics Tell Our Stories:", comics_path %> </span> 
+		<%= @comic ?  @comic.title : "" %>
+	</h1>
 <%= yield %>
-<p class='link'>
-<%= link_to "All Comics", comics_path %>
-</p>
+
 </div>
 </body>
 </html>

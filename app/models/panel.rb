@@ -7,11 +7,13 @@ class Panel < ActiveRecord::Base
                     :url => "/images/comics/originals/:id/:style/:filename"
                     
                     
-  def current_image_url
+  def current_image_url 
     if modified_image_file_name
       "/images/comics/#{modified_image_file_name}"
     else
       original_image.url(:medium)
     end
   end
+  
+  
 end

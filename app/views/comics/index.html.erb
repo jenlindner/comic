@@ -1,6 +1,12 @@
 <ul>
+	
 <% @comics.each do |c| %>
-	<li><%= link_to c.title, comic_path(c) %></li>
+	<li>
+		<% if c.panels.first %>
+			<%= link_to image_tag(c.panels.first.current_image_url(), :border => 0), comic_path(c)  %>
+		<% end %>
+		<%= link_to c.title, comic_path(c) %>
+	</li>
 	
 <% end %>
 </ul>

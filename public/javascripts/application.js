@@ -70,6 +70,14 @@ $(document).ready( function(){
 			return false;
 		}
 	});
+	
+	$("#upload_photo_form").submit(function(){
+		if ($("#panel_original_image").val() == ""){
+			$("#panel_original_image").css("padding", ".3em");
+			$("#panel_original_image").css("background-color", "#F93");
+			return false;
+		}
+	});
 
 	$("#art_form").live("submit", function(){
 		var canvas = $(this).parents(".edit_panel_dialog").find(".canvas")[0];
