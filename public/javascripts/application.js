@@ -64,6 +64,13 @@ $(document).ready( function(){
 		$(canvas).replaceWith("<canvas class='canvas' height='200' width='300'>nope</canvas>");
 	});
 
+	$("#new_comic").submit(function(){
+		if ($("#comic_title").val() == ""){
+			$("#comic_title_error").show();
+			return false;
+		}
+	});
+
 	$("#art_form").live("submit", function(){
 		var canvas = $(this).parents(".edit_panel_dialog").find(".canvas")[0];
 		var el_panel_id = "#"+ $(this).parents(".edit_panel_dialog").attr("data-panel-element-id");

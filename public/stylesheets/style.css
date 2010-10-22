@@ -58,6 +58,10 @@ a:hover { color: #fff; background-color:#f90; }
   list-style: square;
 }
 
+#comic_title_error{
+	color: red;
+	display: none;
+}
 
 canvas{
 	border: 0px solid #000; 
