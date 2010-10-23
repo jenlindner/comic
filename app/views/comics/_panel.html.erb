@@ -1,0 +1,8 @@
+<li id="panels_<%= panel.id %>" data-panel-id="<%= panel.id %>" data-comic-id="<%= @comic.id %>" data-comic-title="<%= @comic.title %>" class="border">	
+	<%= image_tag panel.current_image_url(), :class => "drag" %>
+	<div class="panel_buttons">
+			<button class="edit_panel">Edit Panel</button>
+			<button class="delete_panel" data-remote-url="<%= comic_panel_url(@comic, panel) %>" data-confirm="Are you sure this is what you really, really want to do?">Delete Panel</button>
+	</div>
+	
+</li>

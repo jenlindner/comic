@@ -1,17 +1,19 @@
+<span id="disable" data-disable="<%= @disable %>"></span>		
 
-	<span id="disable" data-disable="<%= @disable %>"></span>	
-	<%if @comic.panels %>
-
-
-  <ul class="inline_list sortable" id="<%= @comic.id %>">
-	  <%= render :partial=> "edit_panel", :collection => @comic.panels %>
-  </ul>
+<%if @comic.panels %>
+ <ul class="inline_list sortable" id="<%= @comic.id %>">
+  	<%= render :partial=> "panel", :collection => @comic.panels %>
+ </ul>
 <% end %>
 
 <div id="new_panel_dialog" title="Add a Panel" class="dialog">
-<%= render :partial => "add_panel" %>
+<%= render "add_panel" %>
 </div>
 
 <p class='link'>
 	<span id="add_panel"> Add New Panel to <%= @comic.title %></span>
 </p>
+
+<div id="edit_panel_dialog" class="dialog">
+	<%= render "edit_panel" %>	
+</div>

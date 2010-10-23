@@ -1,28 +1,41 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(document).ready( function(){
+	function createPusher(){
+		var paint = new Pusher('279b70cc663845e74c75', 'image_data');	
+		return paint;
+	}
 
-
-function createPusher(){
-	var paint = new Pusher('279b70cc663845e74c75', 'image_data');	
-	return paint;
-}
-
-function bindPaintToPusher(canvas, paint){
-	canvas = canvas.getContext('2d');
-	console.log("bind "+ canvas)
-	paint.bind('begin_painting', function(data){
-		var x = 0;
-		var square_size = data.square_size
-		data.colors.forEach(function(color) {
-			seurrat.color(canvas, x, data.y, color, square_size);
-			x += square_size;
+	function bindPaintToPusher(canvas, paint){
+		canvas = canvas.getContext('2d');
+		paint.bind('begin_painting', function(data){
+			var x = 0;
+			var square_size = data.square_size
+			data.colors.forEach(function(color) {
+				seurrat.color(canvas, x, data.y, color, square_size);
+				x += square_size;
+			});
 		});
-	});
-}
+	}
+	function clearCanvas(){
+		$("#edit_panel_dialog").bind("dialogclose", function(){
+			$("#edit_panel_dialog canvas")[0].getContext('2d').clearRect(0,0,200,300);
+		});
+	}
+	
+	function applyEffect(route){
+		var comic_id = $("#edit_panel_dialog").data("comic_id");
+		var id = $("#edit_panel_dialog").data("id");
 
-$(document).ready( function(){ 
+		bindPaintToPusher($("#edit_panel_dialog").find(".canvas")[0], paint);
+		var panel = $("#edit_panel_dialog img");
+		var href = route(comic_id, id);
+	  $.post(href);
+	}
+		
+	var $edit_panel = $("#edit_panel_dialog").dialog( {minWidth: 660, width: 660, height: 322, autoOpen: false} );
+	
 	var paint = createPusher();	
 	var disable = $("#disable").attr("data-disable");
+	
 	$(".sortable").sortable({
 		handle: "img.drag", 
 		update: function(event, ui){
@@ -30,38 +43,25 @@ $(document).ready( function(){
 			$.post('/comics/' + list.attr("id") + '/reorder',list.sortable("serialize"));
 		}
 	});
-	$(".pixelate").click(function(){
-		console.log($(this).parent("li").attr("data-panel-id"));
-		bindPaintToPusher($(this).parents(".edit_panel_dialog").find(".canvas")[0], paint);
-		
-		var panel = $(this).parents(".edit_panel_dialog").find("img").first();
-		var href = $(this).attr("data-remote-url");
-		console.log($(this).attr("data-remote-url"));
 	
-		$.post(href);
+	$(".pixelate").click(function(){
+		applyEffect(Routes.comicPanelPixelatePath);
 	});
 
 	$(".zoom").click(function(){
-		bindPaintToPusher($(this).parents(".edit_panel_dialog").find(".canvas")[0], paint);
-		var panel = $(this).parents(".edit_panel_dialog").find("img").first();
-		var href = $(this).attr("data-remote-url");
-	  $.post(href);
+		applyEffect(Routes.comicPanelZoomPath);
 	});
 	
 	$(".delineate").click(function(){
-		bindPaintToPusher($(this).parents(".edit_panel_dialog").find(".canvas")[0], paint);
-		var panel = $(this).parents(".edit_panel_dialog").find("img").first();
-		var href = $(this).attr("data-remote-url");
-	  $.post(href);
+		applyEffect(Routes.comicPanelDelineatePath);
 	});	
 
 	$(".export_art").click(function(){
-		seurrat.export_art($("#canvas")[0]);
+		seurrat.export_art($("#edit_panel_dialog canvas"));
 	});
 
 	$(".clear_canvas").click(function(){
-		var canvas = $(this).parents(".edit_panel_dialog").find(".canvas")[0];
-		$(canvas).replaceWith("<canvas class='canvas' height='200' width='300'>nope</canvas>");
+		clearCanvas();
 	});
 
 	$("#new_comic").submit(function(){
@@ -99,12 +99,18 @@ $(document).ready( function(){
 	
 	$("#add_panel").click(function(){
 		$("#new_panel_dialog").dialog();
-		//i want to make rows of three panels only.
 	});
-
-	$(".edit_panel").live("click", function(){
-		$(this).parent().parent().find('.edit_panel_dialog').dialog( {minWidth: 660, width: 660, height: 322} ).dialog("open");
-		
+	
+	$(".edit_panel").click(function(){
+		var comic_id = $(this).parent().parent().attr("data-comic-id");
+		var id = $(this).parent().parent().attr("data-panel-id");
+		var title = $(this).parent().parent().attr("data-comic-title");
+		var comic_and_panel_id = comic_id + "_" + id;
+		var img_src = Routes.comicPanelImagePath(comic_id, id);
+		$("#edit_panel_dialog img").attr("src", img_src);
+		$("#edit_panel_dialog").data("comic_id", comic_id).data("id", id);
+		$edit_panel.dialog("option", "title", title);
+		$edit_panel.dialog("open");
 	});
 
 	$(".delete_panel").click(function(){

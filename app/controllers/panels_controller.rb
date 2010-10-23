@@ -51,6 +51,10 @@ class PanelsController < ApplicationController
     redirect_to comic_path(@panel.comic)
   end
   
+  def image
+    redirect_to @panel.original_image.url(:medium)
+  end
+  
   protected
     def find_panel
       @panel = Panel.find(params[:id])

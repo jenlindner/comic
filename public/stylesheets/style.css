@@ -95,7 +95,6 @@ img.drag{
 .inline_list li{
 	display: inline;
 	float: left;
-	height: 240px;
 	margin-left: 5px;
 	margin-bottom: 5px;
 	list-style-type:none;
@@ -169,8 +168,5 @@ input:focus {
 	background-color: #fff;
 }
 
-#add_panel{
-
-}
 
 
