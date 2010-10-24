@@ -11,4 +11,7 @@ Routes = {
 	comicPanelDelineatePath: function(comic_id, id){
 		return "/comics/"+ comic_id + "/panels/" + id + "/delineate";
 	},
+	comicPanelPath: function(comic_id, id){
+		return "/comics/"+ comic_id + "/panels/" + id;
+	}
 }

@@ -1,5 +1,10 @@
-<li id="panels_<%= panel.id %>" data-panel-id="<%= panel.id %>" data-comic-id="<%= @comic.id %>" data-comic-title="<%= @comic.title %>" class="border">	
-	<%= image_tag panel.current_image_url(), :class => "drag" %>
+<li id="panels_<%= panel.id %>" data-panel-id="<%= panel.id %>" data-panel-text_x="<%= panel.text_x %>" data-panel-text_y="<%= panel.text_y %>" data-panel-text="<%=panel.text %>" data-comic-id="<%= @comic.id %>" data-comic-title="<%= @comic.title %>" class="border panel">	
+	<%= image_tag panel.current_image_url(), :class => "drag", :width => "300", :height => "200" %>
+	<% if panel.text.present? %>
+		<span class='text'>
+			<%= panel.text  %>
+		</span>
+	<% end %>
 	<div class="panel_buttons">
 			<button class="edit_panel">Edit Panel</button>
 			<button class="delete_panel" data-remote-url="<%= comic_panel_url(@comic, panel) %>" data-confirm="Are you sure this is what you really, really want to do?">Delete Panel</button>

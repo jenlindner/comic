@@ -10,11 +10,24 @@ describe("Comic", function() {
 		// setup and teardown of all dom elements for each test in a before block. no leftover test data.
   });
 
-	it ("should open an edit panel dialog for each panel", function(){
-		$("<div class='edit_panel_dialog dialog'>").appendTo($(document.body));	
+	it ("should open the edit panel dialog when you click edit panel", function(){
+		$("<div id='edit_panel_dialog dialog'>").appendTo($(document.body));	
 			$(".edit_panel").click();
 			$(".edit_panel").parents.find();
 			expect($(".new_panel_dialog").css("display")).toEqual("block");
+	});
+	
+	
+	it ("should delete a panel dialog when you click its delete button", function(){
+		$("<div id='edit_panel_dialog dialog'>").appendTo($(document.body));	
+	
+			expect($(".new_panel_dialog").toEqual("undefined");
+	});
+	
+	it ("should append text to a panel when you click add text", function(){
+		$("<div id='edit_panel_dialog dialog'>").appendTo($(document.body));	
+	
+			expect($(".new_panel_dialog").toEqual("undefined");
 	});
 
 

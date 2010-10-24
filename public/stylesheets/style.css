@@ -63,9 +63,12 @@ a:hover { color: #fff; background-color:#f90; }
 	display: none;
 }
 
+.workspace img{
+	border:black solid 2px;
+}
+
 canvas{
-	border: 0px solid #000; 
-	margin-right: .25em;
+	border: 2px solid #000; 
 	padding:0;
 	height: 200px;
 	width:300px;
@@ -77,14 +80,13 @@ canvas{
 	top: 0px;
 	margin: 1em auto;
 	height: 2em;
-	width: 36em;
+	width: 35em;
 	padding-left:0;
 }
 
 .workspace{
 	position: relative;
 	top: 0px;
-	border:black solid 2px;
 	height: 200px;
 }
 
@@ -100,6 +102,44 @@ img.drag{
 	list-style-type:none;
 }
 
+
+#canvas_text{
+	display:none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 2em;
+	margin: 0;
+	width: 10em;
+	border-radius: 4px;
+	border-top: #000 solid 0px;
+	background-color: #fff;
+	z-index: 100;
+	color: #000;
+	text-align: center; 
+	line-height: 2em;
+	cursor:move;
+}
+
+.inline_list li.panel {
+	position: relative;
+}
+
+.inline_list li.panel span.text {
+	display:block;
+	width: 10em;
+	position: absolute;
+	top: 100px;
+	z-index: 100;
+	line-height: 2em;
+	text-align: center;
+	border: #000 solid 1px;
+	border-radius: 4px;
+	background-color: #fff;
+	color: #000;
+	padding: 0;
+}
+
 .dialog{
 	display:none;
 }
@@ -111,6 +151,10 @@ img.drag{
 	border: solid 2px #000;
 }
 
+.black_border{
+	border: solid 1px #000;
+}
+
 button, .default_button, submit{
 	 border: none;
 	 padding: 5px 10px;
@@ -120,7 +164,7 @@ button, .default_button, submit{
 }
 
 .workspace_controllers button, .workspace_controllers .default_button{
-	 font-size: .8em;
+	font-size: .8em;
 }
 button:hover, .default_button:hover{
 	background-color: #f93;
@@ -133,12 +177,15 @@ button:focus, .default_button:focus {
 input:focus {
   outline-width:0;
 }
+.inline_list.index li{
+	margin:0px;
+}
 
 .ui-widget { font-size: 1em; }
 
 .main_container{
 	width: 62em;
-	height: 60em;
+	height: 48em;
 	margin: 0 auto;
 	margin-top: 3em;
 	background-color: #fff;
@@ -147,9 +194,21 @@ input:focus {
 	-webkit-box-shadow: 0 1px 5px #999, inset 0 10px 20px #999;
 }
 
+.clear{
+	clear:both;
+}
+
+#modified_image_container{
+	float:right;
+	position:relative;
+	width:300px;
+	height: 200px;
+}
+
 .site_title a{
 	color: #f93;
 	font-size: 1em;
+	text-shadow: 1px 1px 1px #c60;
 }
 .right_link{
 	float:right;
@@ -161,6 +220,29 @@ input:focus {
 	padding-top: .1em;
 	color:#f93;
 	margin-left: 60em;
+}
+
+.faded{
+	-webkit-opacity: .35;
+}
+a span.overlay_text{
+	position:relative;
+	top: -75px;
+	text-align: center;
+	display:block;
+	z-index: 1000;
+	color: #000;
+	text-shadow: 0 0 5px #fff;
+}
+
+a:hover span.overlay_text{
+	color: #fff;
+	text-shadow: 0 0 5px #000;
+}
+
+a:hover img.faded{
+	background-color: #fff;
+	-webkit-opacity: 1.0;	
 }
 
 .site_title a:hover, .link:hover{

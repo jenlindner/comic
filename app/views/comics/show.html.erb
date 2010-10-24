@@ -6,13 +6,19 @@
  </ul>
 <% end %>
 
-<div id="new_panel_dialog" title="Add a Panel" class="dialog">
+<div id="add_text_dialog" title="<%= @comic.title %>" class="dialog">
+<%= render "add_text" %>
+</div>
+
+<div id="new_panel_dialog" title="Add a Panel to <%= @comic.title %>" class="dialog">
 <%= render "add_panel" %>
 </div>
 
+<% unless @comic.panels.length >= 6 %>
 <p class='link'>
 	<span id="add_panel"> Add New Panel to <%= @comic.title %></span>
 </p>
+<% end %>
 
 <div id="edit_panel_dialog" class="dialog">
 	<%= render "edit_panel" %>	

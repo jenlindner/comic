@@ -34,8 +34,6 @@ class PanelsController < ApplicationController
     redirect_to comic_path(@panel.comic)
   end
 
-  def edit
-  end
 
   def update
     blob, = Datafy::decode_data_uri(params[:my_panel])
@@ -43,6 +41,8 @@ class PanelsController < ApplicationController
     image = Magick::Image.from_blob(blob) 
     image[0].write("public/images/comics/panel_id_#{@panel.id}.png")
     @panel.save
+    @panel.update_attributes(params[:panel])
+
     redirect_to comic_path(@panel.comic)
   end
 

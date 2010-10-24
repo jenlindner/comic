@@ -1,20 +1,24 @@
-<ul>
+<ul class="inline_list index">
 	
 <% @comics.each do |c| %>
 	<li>
 		<% if c.panels.first %>
-			<%= link_to image_tag(c.panels.first.current_image_url(), :border => 0), comic_path(c)  %>
+			<% link_to comic_path(c) do %>
+				<%= image_tag(c.panels.first.current_image_url(), :border => 0,  :width => "150", :height => "100", :class => "faded") %>
+				<span class="overlay_text">
+					<%= c.title %>
+				</span>
+				<% end %>
 		<% end %>
-		<%= link_to c.title, comic_path(c) %>
 	</li>
 	
 <% end %>
 </ul>
 
+<div class="clear">
 <% form_for Comic.new, :url => comics_path do |f| %>
-	
 	<%= f.label :title %>
 	<%= f.text_field :title %> <span id="comic_title_error">You Must Give Your Comic a Title.</span><br />
 	<%= f.submit "Submit!" %>	
-	
 <% end %>
+</div>

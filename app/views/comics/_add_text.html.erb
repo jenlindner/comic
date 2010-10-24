@@ -1,0 +1,12 @@
+<p>Write some dialog for your panel, and drag it into perfect position on your image!</p>
+<% form_for :panel, :url => text_comic_panel_path(@comic), :html => {:id => "add_text_form" } do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+		<%= f.text_field :text %>
+  </p>
+
+  <p>
+    <%= f.submit 'Submit' , :class => "default_button" %>
+  </p>
+<% end %>

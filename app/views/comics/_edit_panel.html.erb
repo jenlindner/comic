@@ -1,18 +1,17 @@
 
 	<div class="workspace">
 		 <img src="" />
-		<canvas class="canvas">nope</canvas>	
+		<div id="modified_image_container">
+			<canvas id="canvas"></canvas>
+			<p id="canvas_text"></p> 
+		</div>
 	</div>
 
 	<ul class="workspace_controllers inline_list">
 	 <li><button class="pixelate">Pixelate</button></li>
-	 <li><button class="zoom" data-remote-url="<%#= zoom_comic_panel_url(@comic, edit_panel) %>">Zoom</button></li>
-	 <li><button class="delineate" data-remote-url="<%#= delineate_comic_panel_url(@comic, edit_panel) %>">Delineate</button></li>
-	 <li><button class="export_art">Download Panel</button></li>
+	 <li><button class="zoom">Zoom</button></li>
+	 <li><button class="delineate">Delineate</button></li>
+	 <li><button class="add_text">Add Text</button></li>
 	 <li><button class="clear_canvas">Clear Canvas</button></li> 
-	 <li>
-			<%# form_for edit_panel, :url => comic_panel_path(@comic, edit_panel), :html => {:id => "art_form"} do |f| %>
-			 	<%#= f.submit 'Save Panel', :class => "default_button" %>
-			<%# end %>
-		</li>
+	 <li><button class="save_panel">Save Panel</button></li>
 	</ul>

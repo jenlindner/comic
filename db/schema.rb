@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101012023617) do
+ActiveRecord::Schema.define(:version => 20101024005037) do
 
   create_table "comics", :force => true do |t|
     t.datetime "created_at"
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(:version => 20101012023617) do
     t.string   "original_image_content_type"
     t.integer  "original_image_file_size"
     t.datetime "original_image_updated_at"
+    t.string   "text"
+    t.integer  "text_x"
+    t.integer  "text_y"
   end
 
 end
