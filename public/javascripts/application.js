@@ -190,11 +190,10 @@ $(document).ready( function(){
 		var comic_id = $(this).parent().parent().attr("data-comic-id");
 		var id = $(this).parent().parent().attr("data-panel-id");
 		
-		var title = "Add Effects and Text to Your Panel"; //+ $(this).parent().parent().attr("data-comic-title");
+		var title = "Add Effects and Text to Your Panel"; 
 		var comic_and_panel_id = comic_id + "_" + id;
 		var img_src = Routes.comicPanelImagePath(comic_id, id);
 		$("#edit_panel_dialog img").attr("src", img_src);
-		//when we open the edit dialog we set the parent lis id on the data 
 		$edit_panel.data("comic_id", comic_id).data("id", id);
 		$edit_panel.data("panel_id", id);
 		$edit_panel.dialog("option", "title", title);

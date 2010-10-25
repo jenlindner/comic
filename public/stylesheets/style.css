@@ -108,7 +108,7 @@ img.drag{
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	height: 2em;
+	height: auto;
 	margin: 0;
 	width: 10em;
 	border-radius: 4px;
@@ -117,7 +117,7 @@ img.drag{
 	z-index: 100;
 	color: #000;
 	text-align: center; 
-	line-height: 2em;
+	line-height: 1.1em;
 	cursor:move;
 }
 

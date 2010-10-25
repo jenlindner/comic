@@ -7,7 +7,7 @@
 		<!-- show first four panels in div float left with width only enough for two-->
 		<div class="thumbnail_grid">
 			<% c.panels.each_with_index do |p, index| %>
-				<% if index < 5 %>
+				<% if index < 4 %>
 					<%= image_tag(p.current_image_url(), :border => 0,  :width => "150", :height => "100", :class => "faded") %>	
 				<% end %>
 			<% end %>
