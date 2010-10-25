@@ -3,7 +3,6 @@ $(document).ready( function(){
 	function hideText(){
 		$('.text').each(function(index, text){
 			if(!$(text).text().match(/\w/)){
-				console.log("something")
 				$(text).hide();
 			}
 		});
@@ -133,11 +132,13 @@ $(document).ready( function(){
 			$(el_panel_id).find("img").attr("height", 200)
 																	.attr("width", 300)
 																	.attr("src", canvas.toDataURL());											
-											
-			$(el_panel_id).find(".text").text($("#panel_text").val())
-																	.css("left", $("#canvas_text")[0].style.left)
-																	.css("top", $("#canvas_text")[0].style.top)
-																	.show();
+			
+			if ($("#canvas_text").text().match(/\w/)){	
+				$(el_panel_id).find(".text").text($("#canvas_text").text())
+																		.css("left", $("#canvas_text")[0].style.left)
+																		.css("top", $("#canvas_text")[0].style.top)
+																		.show();
+			}
 			$.ajax({
 				type: "put",
 				url:Routes.comicPanelPath(currentComicId(), currentPanelId()),
