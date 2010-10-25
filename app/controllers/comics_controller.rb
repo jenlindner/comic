@@ -2,6 +2,7 @@ class ComicsController < ApplicationController
   
   def index
     @comics = Comic.all
+    @comic_cover_set = @comics.select {|comic| comic.panels.size >= 4 }
   end
   
   def create

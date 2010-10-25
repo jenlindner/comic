@@ -18,10 +18,19 @@ $(document).ready( function(){
 		return panel_id;
 	}
 	
+	function addPanelLinkDisplay(){
+		console.log($(".sortable").attr("data-panels-length"));
+		var panels = $(".sortable").attr("data-panels-length");
+		if (panels >= 6){
+			$("#add_panel").hide();
+		}
+	}
+	
 	function imgEffectApplied(){
 		$edit_panel.data("imgEffectApplied", true);
 	}
 	
+	addPanelLinkDisplay();
 	hideText();
 	
 	function getPanelTextPosition(panel){
@@ -203,8 +212,8 @@ $(document).ready( function(){
 				type: "delete",
 				url: href,
 				success: function(){
-					if ($(panel).parent().children().length == 6){
-						$("#main_container").append("<p class='link'><span id='add_panel'>Add New Panel to " + title + "</span></p>");
+					if ($(panel).parent().children().length < 7){
+							$("#add_panel").show();
 					}
 					panel.remove();
 				}

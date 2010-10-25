@@ -224,10 +224,21 @@ input:focus {
 
 .faded{
 	-webkit-opacity: .35;
+	float: left;
 }
-a span.overlay_text{
+
+.thumbnail_grid{
 	position:relative;
-	top: -75px;
+	width: 300px;
+	height: 200px;
+	margin: 5px 5px;
+	border: solid 1px #000;
+}
+
+ span.overlay_text{
+	position:absolute;
+	top: 95px;
+	left: 120px;
 	text-align: center;
 	display:block;
 	z-index: 1000;

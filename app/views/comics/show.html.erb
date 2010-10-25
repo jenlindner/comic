@@ -1,7 +1,5 @@
-<span id="disable" data-disable="<%= @disable %>"></span>		
-
 <%if @comic.panels %>
- <ul class="inline_list sortable" id="<%= @comic.id %>">
+ <ul class="inline_list sortable" id="<%= @comic.id %>" data-panels-length="<%= @comic.panels.size %>">
   	<%= render :partial=> "panel", :collection => @comic.panels %>
  </ul>
 <% end %>
@@ -14,11 +12,9 @@
 <%= render "add_panel" %>
 </div>
 
-<% unless @comic.panels.length >= 6 %>
 <p class='link'>
 	<span id="add_panel"> Add New Panel to <%= @comic.title %></span>
 </p>
-<% end %>
 
 <div id="edit_panel_dialog" class="dialog">
 	<%= render "edit_panel" %>	

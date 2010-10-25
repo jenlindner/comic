@@ -1,15 +1,21 @@
 <ul class="inline_list index">
 	
-<% @comics.each do |c| %>
+<% @comic_cover_set.each do |c| %>
 	<li>
-		<% if c.panels.first %>
-			<% link_to comic_path(c) do %>
-				<%= image_tag(c.panels.first.current_image_url(), :border => 0,  :width => "150", :height => "100", :class => "faded") %>
-				<span class="overlay_text">
-					<%= c.title %>
-				</span>
+		
+		<% link_to comic_path(c) do %>
+		<!-- show first four panels in div float left with width only enough for two-->
+		<div class="thumbnail_grid">
+			<% c.panels.each_with_index do |p, index| %>
+				<% if index < 5 %>
+					<%= image_tag(p.current_image_url(), :border => 0,  :width => "150", :height => "100", :class => "faded") %>	
 				<% end %>
+			<% end %>
+			<span class="overlay_text">
+				<%= c.title %>
+			</span>
 		<% end %>
+		</div>
 	</li>
 	
 <% end %>
