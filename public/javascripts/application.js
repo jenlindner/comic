@@ -1,5 +1,11 @@
 $(document).ready( function(){
 	
+	if (Modernizr.canvas) {
+	  // let's draw some shapes!
+	} else {
+	  // no native canvas support available :(
+	}
+	
 	function hideText(){
 		$('.text').each(function(index, text){
 			if(!$(text).text().match(/\w/)){
