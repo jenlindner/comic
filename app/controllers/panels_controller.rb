@@ -20,10 +20,10 @@ class PanelsController < ApplicationController
     redirect_to comic_path(@panel.comic)
   end
   
-  def zoom
+  def colorize
     path = @panel.original_image.path(:medium)
     @photo_artist = PhotoArtist.new(path)
-    @photo_artist.zoom(2)
+    @photo_artist.zoom()
     redirect_to comic_path(@panel.comic)
   end
 

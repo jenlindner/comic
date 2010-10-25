@@ -8,7 +8,6 @@ $(document).ready( function(){
 			}
 		});
 	}
-	
 	function currentComicId(){
 		var comic_id = $edit_panel.data("comic_id");
 		return comic_id;
@@ -85,8 +84,8 @@ $(document).ready( function(){
 		applyEffect(Routes.comicPanelPosterizePath);
 	});
 
-	$(".zoom").click(function(){
-		applyEffect(Routes.comicPanelZoomPath);
+	$(".colorize").click(function(){
+		applyEffect(Routes.comicPanelColorizePath);
 	});
 	
 	$(".charcoal").click(function(){

@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :comics, :member => {:reorder => :post} do |comic| 
-    comic.resources :panels, :member => {:zoom => :post, 
+    comic.resources :panels, :member => {:colorize => :post, 
                     :posterize => :post, :charcoal => :post, 
                     :image => :get, :text => :put}
   end
