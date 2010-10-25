@@ -1,0 +1,9 @@
+<li id="panels_<%= show_panel.id %>" data-panel-id="<%= show_panel.id %>" data-panel-text_x="<%= show_panel.text_x %>" data-panel-text_y="<%= show_panel.text_y %>" data-panel-text="<%=show_panel.text %>" data-comic-id="<%= @comic.id %>" data-comic-title="<%= @comic.title %>" class="border panel">	
+	<%= image_tag show_panel.current_image_url(), :width => "300", :height => "200" %>
+		<span class='text'>
+			<% if show_panel.text.present? %>
+				<%= show_panel.text  %>
+			<% end %>
+		</span>
+	
+</li>
