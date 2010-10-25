@@ -1,17 +1,17 @@
 Routes = {
-	comicPanelPixelatePath: function(comic_id, id){
-		return "/comics/"+ comic_id + "/panels/" + id + "/pixelate";
+	comicPanelPosterizePath: function(comic_id, id){
+		return "/comics/" + comic_id + "/panels/" + id + "/posterize";
 	},
 	comicPanelZoomPath: function(comic_id, id){
-		return "/comics/"+ comic_id + "/panels/" + id + "/zoom";
+		return "/comics/" + comic_id + "/panels/" + id + "/zoom";
 	},
 	comicPanelImagePath: function(comic_id, id){
-		return "/comics/"+ comic_id + "/panels/" + id + "/image";
+		return "/comics/" + comic_id + "/panels/" + id + "/image";
 	},
-	comicPanelDelineatePath: function(comic_id, id){
-		return "/comics/"+ comic_id + "/panels/" + id + "/delineate";
+	comicPanelCharcoalPath: function(comic_id, id){
+		return "/comics/" + comic_id + "/panels/" + id + "/charcoal";
 	},
 	comicPanelPath: function(comic_id, id){
-		return "/comics/"+ comic_id + "/panels/" + id;
+		return "/comics/" + comic_id + "/panels/" + id;
 	}
 }

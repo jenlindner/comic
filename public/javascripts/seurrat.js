@@ -1,7 +1,7 @@
 var seurrat = {
 	color: function(el,x,y,color,factor){
 		el.fillStyle = color;
-		el.fillRect(x,y,x+factor,y+factor);
+		el.fillRect(x,y,factor,factor);
 	},	
 	downloads: [],
 	export_art: function(el){

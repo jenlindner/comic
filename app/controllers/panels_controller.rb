@@ -13,10 +13,10 @@ class PanelsController < ApplicationController
     end
   end
   
-  def pixelate
+  def posterize
     path = @panel.original_image.path(:medium)
     @photo_artist = PhotoArtist.new(path)
-    @photo_artist.paint
+    @photo_artist.posterize
     redirect_to comic_path(@panel.comic)
   end
   
@@ -27,10 +27,10 @@ class PanelsController < ApplicationController
     redirect_to comic_path(@panel.comic)
   end
 
-  def delineate
+  def charcoal
     path = @panel.original_image.path(:medium)
     @photo_artist = PhotoArtist.new(path)
-    @photo_artist.find_edges
+    @photo_artist.charcoal
     redirect_to comic_path(@panel.comic)
   end
 

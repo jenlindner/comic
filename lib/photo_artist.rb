@@ -3,7 +3,6 @@ require 'RMagick'
 require 'image_object'
 
 class PhotoArtist
-  SQUARE_SIZE = 5
  
   def initialize(path)
     pusher = PusherCredentials.new
@@ -17,44 +16,34 @@ class PhotoArtist
     paint(zoomed_image)
   end
   
-  def find_edges(*radius)
-    edged_image = @original.image.edge()
-    paint(edged_image)
-  end
-  
-  
-  def paint(*image)
+  def paint(square_size, *image)
     image = image.empty? ? @original.image : image[0]
-    (image.rows / SQUARE_SIZE).times do |y|
+    (image.rows / square_size).times do |y|
       colors_of_row = []
-      (image.columns / SQUARE_SIZE).times do |x|
-        pixels = @original.image.get_pixels((x * SQUARE_SIZE), (y * SQUARE_SIZE), SQUARE_SIZE, SQUARE_SIZE)
-        colors_of_row << darkest_pixels(pixels)
+      (image.columns / square_size).times do |x|
+        pixels = image.get_pixels((x * square_size), (y * square_size), square_size, square_size)
+        colors_of_row << rgb_pixels(pixels) 
       end
-       Pusher["image_data"].trigger("begin_painting", :y => (y * SQUARE_SIZE), :colors => colors_of_row, :square_size => SQUARE_SIZE)
+       Pusher["image_data"].trigger("begin_painting", :y => (y * square_size), :colors => colors_of_row, :square_size => square_size)
     end
   end
   
+  def posterize
+    posterized_image = @original.image.posterize(levels=4,dither=false)
+    paint(1, posterized_image)
+  end
   
-  # def paint_single_pixel_high_row(*image)
-  def find_edges(*image)
-    image = @original.image.edge()
-    image.rows.times do |y|
-      colors_of_row = []
-      image.columns.times do |x|
-        pixels = image.get_pixels(x, y, 1, 1)
-        colors_of_row << rgb_pixels(pixels)
-      end
-      Pusher["image_data"].trigger("begin_painting", :y => y, :colors => colors_of_row, :square_size => 1)
-    end
+  def charcoal
+   edged_image = @original.image.threshold(140)
+   paint(1, edged_image)
   end
   
   def rgb_pixels(pixels)
-    intense_pixel = nil
+    pixel = nil
     pixels.each do |p|
-      intense_pixel = p
+      pixel = p
     end
-    "rgb(#{intense_pixel.red},#{intense_pixel.green},#{intense_pixel.blue})"
+    "rgb(#{pixel.red},#{pixel.green},#{pixel.blue})"
   end
  
   def darkest_pixels(pixels)
