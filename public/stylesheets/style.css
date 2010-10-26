@@ -265,5 +265,8 @@ a:hover img.faded{
 	background-color: #fff;
 }
 
-
+#new_comic{
+	width: 30em;
+	margin: 0 auto;
+}
 

@@ -23,7 +23,7 @@
 
 <div class="clear">
 <% form_for Comic.new, :url => comics_path do |f| %>
-	<%= f.label :title %>
+	<%= f.label :title, "Create a Comic" %>
 	<%= f.text_field :title %> <span id="comic_title_error">You Must Give Your Comic a Title.</span>
 	<%= f.submit "Submit!", :class=> "default_button"%>	
 <% end %>
