@@ -4,6 +4,8 @@ ActionController::Routing::Routes.draw do |map|
                     :posterize => :post, :charcoal => :post, 
                     :image => :get, :text => :put}
   end
+  
+  map.root :controller => :comics, :action => :index
 end
 
 
