@@ -87,7 +87,7 @@ $(document).ready( function(){
 		}
 	});
 	
-	$(".sortable").children().each(function(index,child){
+	$(".inline_list").children().each(function(index,child){
 		getPanelTextPosition(child);
 	});
 	

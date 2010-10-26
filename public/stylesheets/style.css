@@ -240,9 +240,10 @@ input:focus {
 
  span.overlay_text{
 	position:absolute;
-	top: 95px;
-	left: 120px;
+	top: 88px;
+	width: 100%;
 	text-align: center;
+	font-size: 1.5em;
 	display:block;
 	z-index: 1000;
 	color: #000;
