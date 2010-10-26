@@ -15,13 +15,6 @@ class PhotoArtist
     paint(1,segmented_image)
   end
   
-  # def zoom(factor)
-  #   width_and_height = @original.get_width_and_height_from_factor(factor) 
-  #   cropped_image = @original.image.crop(Magick::CenterGravity, width_and_height.fetch("width"), width_and_height.fetch("height"))
-  #   zoomed_image = cropped_image.resize(300,200) 
-  #   paint(zoomed_image)
-  # end
-  
   def paint(square_size, *image)
     image = image.empty? ? @original.image : image[0]
     (image.rows / square_size).times do |y|

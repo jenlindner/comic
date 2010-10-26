@@ -1,7 +1,7 @@
-<p>Upload an image to add a panel to your comic.</p>
+<p>
+	Upload an image to add a panel to your comic.
+</p>
 <% form_for :panel, :url => comic_panels_path(@comic), :html => {:multipart => true, :id => "upload_photo_form" } do |f| %>
-  <%= f.error_messages %>
-
   <p>
 		<%= f.hidden_field :comic_id, :value => @comic.id %>
   </p>

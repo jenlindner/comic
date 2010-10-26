@@ -1,11 +1,5 @@
 $(document).ready( function(){
 	
-	if (Modernizr.canvas) {
-	  // let's draw some shapes!
-	} else {
-	  // no native canvas support available :(
-	}
-	
 	function hideText(){
 		$('.text').each(function(index, text){
 			if(!$(text).text().match(/\w/)){
@@ -13,6 +7,7 @@ $(document).ready( function(){
 			}
 		});
 	}
+	
 	function currentComicId(){
 		var comic_id = $edit_panel.data("comic_id");
 		return comic_id;
@@ -24,9 +19,8 @@ $(document).ready( function(){
 	}
 	
 	function addPanelLinkDisplay(){
-		console.log($(".sortable").attr("data-panels-length"));
 		var panels = $(".sortable").attr("data-panels-length");
-		if (panels >= 6){
+		if ((panels == undefined) || (panels >= 6)){
 			$("#add_panel").hide();
 		}
 	}
@@ -35,8 +29,19 @@ $(document).ready( function(){
 		$edit_panel.data("imgEffectApplied", true);
 	}
 	
+	function setPanelHeight(){
+		if ($(".sortable").length == 0){
+			$("li.panel").css("height", 200);
+		}
+	}
+	setPanelHeight();
 	addPanelLinkDisplay();
 	hideText();
+
+	var $add_text = $("#add_text_dialog").dialog({width: 300, height: 240, autoOpen: false, modal: true});
+	var $add_panel = $("#new_panel_dialog").dialog({autoOpen: false,  modal: true});
+	var $edit_panel = $("#edit_panel_dialog").dialog( {minWidth: 644, width: 644, height: 322, close: function(){ clearCanvas();}, autoOpen: false,  modal: true} );
+	var paint = createPusher();
 	
 	function getPanelTextPosition(panel){
 		$(panel).find(".text").css("left", $(panel).attr("data-panel-text_x") + "px");
@@ -68,19 +73,11 @@ $(document).ready( function(){
 	
 	function applyEffect(route){
 		imgEffectApplied();
-
 		bindPaintToPusher($("#edit_panel_dialog #canvas")[0], paint);
 		var panel = $("#edit_panel_dialog img");
 		var href = route(currentComicId(), currentPanelId());
 	  $.post(href);
 	}
-	
-	var $add_text = $("#add_text_dialog").dialog({width: 300, height: 240, autoOpen: false, modal: true});
-	var $add_panel = $("#new_panel_dialog").dialog({autoOpen: false,  modal: true});
-	var $edit_panel = $("#edit_panel_dialog").dialog( {minWidth: 644, width: 644, height: 322, close: function(){ clearCanvas();}, autoOpen: false,  modal: true} );
-	
-	var paint = createPusher();	
-	var disable = $("#disable").attr("data-disable");
 	
 	$(".sortable").sortable({
 		handle: "img.drag", 
@@ -106,10 +103,6 @@ $(document).ready( function(){
 		applyEffect(Routes.comicPanelCharcoalPath);
 	});	
 
-	$(".export_art").click(function(){
-		seurrat.export_art($("#edit_panel_dialog canvas"));
-	});
-
 	$(".clear_canvas").click(function(){
 		clearCanvas();
 	});
@@ -130,9 +123,7 @@ $(document).ready( function(){
 	});
 
 	$(".save_panel").live("click", function(){
-		
 		var canvas = $("#canvas")[0];
-		
 		var el_panel_id = "#panels_"+ $edit_panel.data("panel_id");
 		if ($edit_panel.data("imgEffectApplied")){
 			$(el_panel_id).find("img").attr("height", 200)
@@ -173,16 +164,15 @@ $(document).ready( function(){
 		}else if ($("#panel_text").val().length > 50){
 			alert("A panel's text cannot exceed 50 characters.");
 		}else{
-				
 			var panel_id = "#panels_" + currentPanelId();
-		
+	
 			$(panel_id).find(".text").text($("#panel_text").val());
 			$("#canvas_text").draggable({ containment: 'parent'})
 											 .text($("#panel_text").val())	
 											 .show()
 			$add_text.dialog("close");
 		}
-			return false;
+		return false;
 	});
 	
 	
@@ -192,10 +182,8 @@ $(document).ready( function(){
 	
 	$(".edit_panel").click(function(){
 		$edit_panel.data("imgEffectApplied", false);
-		
 		var comic_id = $(this).parent().parent().attr("data-comic-id");
 		var id = $(this).parent().parent().attr("data-panel-id");
-		
 		var title = "Add Effects and Text to Your Panel"; 
 		var comic_and_panel_id = comic_id + "_" + id;
 		var img_src = Routes.comicPanelImagePath(comic_id, id);
@@ -208,7 +196,6 @@ $(document).ready( function(){
 
 	$(".delete_panel").click(function(){
 		var panel = $(this).closest("li");
-		console.log($(panel).parent().children().length);
 		var href = $(this).attr("data-remote-url");
 		var title = $(this).attr("data-comic-title");
 		var js_confirm = $(this).attr("data-confirm");
