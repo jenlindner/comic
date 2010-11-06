@@ -1,6 +1,6 @@
 Routes = {
-	comicPanelPosterizePath: function(comic_id, id){
-		return "/comics/" + comic_id + "/panels/" + id + "/posterize";
+	comicPanelComicifyPath: function(comic_id, id){
+		return "/comics/" + comic_id + "/panels/" + id + "/comicify";
 	},
 	comicPanelColorizePath: function(comic_id, id){
 		return "/comics/" + comic_id + "/panels/" + id + "/colorize";

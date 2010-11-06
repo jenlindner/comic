@@ -1,4 +1,4 @@
-<li id="panels_<%= panel.id %>" data-panel-id="<%= panel.id %>" data-panel-text_x="<%= panel.text_x %>" data-panel-text_y="<%= panel.text_y %>" data-panel-text="<%=panel.text %>" data-comic-id="<%= @comic.id %>" data-comic-title="<%= @comic.title %>" class="border panel">	
+<li id="panels_<%= panel.id %>" data-panel-id="<%= panel.id %>" data-panel-text_x="<%= panel.text_x %>" data-panel-text_y="<%= panel.text_y %>" data-panel-text="<%=panel.text %>" data-comic-id="<%= @comic.id %>" data-comic-title="<%= @comic.title %>" data-image-file="<%= panel.temp_filename %>"  class="border panel">	
 	<%= image_tag panel.current_image_url(), :class => "drag", :width => "300", :height => "200" %>
 		<span class='text'>
 			<% if panel.text.present? %>

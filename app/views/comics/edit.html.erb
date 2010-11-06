@@ -1,15 +1,16 @@
 <%if @comic.panels %>
+<% panels = @comic.panels.sort_by{|panel| (panel.sort_order) }%>
  <ul class="inline_list sortable" id="<%= @comic.id %>" data-panels-length="<%= @comic.panels.size %>">
-  	<%= render :partial=> "panel", :collection => @comic.panels %>
+  	<%= render :partial=> "panel", :collection => panels %>
  </ul>
 <% end %>
 
 <div id="add_text_dialog" title="<%= @comic.title %>" class="dialog">
-<%= render "add_text" %>
+	<%= render "add_text" %>
 </div>
 
 <div id="new_panel_dialog" title="Add a Panel to <%= @comic.title %>" class="dialog">
-<%= render "add_panel" %>
+	<%= render "add_panel" %>
 </div>
 
 <p class='link'>

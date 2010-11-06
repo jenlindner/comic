@@ -19,7 +19,8 @@ class ComicsController < ApplicationController
   def show
     @comic = Comic.find(params[:id])
     if @comic.panels
-      @panels = @comic.panels.all(:order => :sort_order)  
+      @panels = @comic.panels.all(:order => :sort_order)
+      p @panels.first.sort_order  
     end
   end
   

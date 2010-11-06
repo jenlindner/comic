@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101024005037) do
+ActiveRecord::Schema.define(:version => 20101106003150) do
 
   create_table "comics", :force => true do |t|
     t.datetime "created_at"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20101024005037) do
     t.string   "text"
     t.integer  "text_x"
     t.integer  "text_y"
+    t.string   "temp_filename"
   end
 
 end

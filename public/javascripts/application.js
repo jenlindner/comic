@@ -34,6 +34,7 @@ $(document).ready( function(){
 			$("li.panel").css("height", 200);
 		}
 	}
+	
 	setPanelHeight();
 	addPanelLinkDisplay();
 	hideText();
@@ -73,10 +74,18 @@ $(document).ready( function(){
 	
 	function applyEffect(route){
 		imgEffectApplied();
-		bindPaintToPusher($("#edit_panel_dialog #canvas")[0], paint);
 		var panel = $("#edit_panel_dialog img");
 		var href = route(currentComicId(), currentPanelId());
-	  $.post(href);
+		$.ajax({
+			type: "post",
+			url: href,
+			dataType: "text",
+			success: function(){
+				var panel_id = "#panels_" + currentPanelId();
+				var src = $(panel_id).attr("data-image-file");
+				$("#canvas").append("<img src='" + src + "' border=0 />");
+			}
+		});
 	}
 	
 	$(".sortable").sortable({
@@ -91,8 +100,8 @@ $(document).ready( function(){
 		getPanelTextPosition(child);
 	});
 	
-	$(".posterize").click(function(){
-		applyEffect(Routes.comicPanelPosterizePath);
+	$(".comicify").click(function(){
+		applyEffect(Routes.comicPanelComicifyPath);
 	});
 
 	$(".colorize").click(function(){
@@ -120,38 +129,6 @@ $(document).ready( function(){
 																.css("background-color", "#F93");
 			return false;
 		}
-	});
-
-	$(".save_panel").live("click", function(){
-		var canvas = $("#canvas")[0];
-		var el_panel_id = "#panels_"+ $edit_panel.data("panel_id");
-		if ($edit_panel.data("imgEffectApplied")){
-			$(el_panel_id).find("img").attr("height", 200)
-																	.attr("width", 300)
-																	.attr("src", canvas.toDataURL());											
-			
-			if ($("#canvas_text").text().match(/\w/)){	
-				$(el_panel_id).find(".text").text($("#canvas_text").text())
-																		.css("left", $("#canvas_text")[0].style.left)
-																		.css("top", $("#canvas_text")[0].style.top)
-																		.show();
-			}
-			$.ajax({
-				type: "put",
-				url:Routes.comicPanelPath(currentComicId(), currentPanelId()),
-				data: {
-					"my_panel": canvas.toDataURL(),
-					"panel[text_x]" : $("#canvas_text")[0].style.left, 
-					"panel[text_y]" : $("#canvas_text")[0].style.top,
-					"panel[text]" : $("#panel_text").val()
-				}
-			});
-			$("#panel_text").val("");
-			$edit_panel.dialog('close');
-		}	else {
-			alert("You can't save a panel without a transformed image.");
-		}
-		
 	});
 	
 	$(".add_text").click(function(){
@@ -185,13 +162,43 @@ $(document).ready( function(){
 		var comic_id = $(this).parent().parent().attr("data-comic-id");
 		var id = $(this).parent().parent().attr("data-panel-id");
 		var title = "Add Effects and Text to Your Panel"; 
-		var comic_and_panel_id = comic_id + "_" + id;
 		var img_src = Routes.comicPanelImagePath(comic_id, id);
 		$("#edit_panel_dialog img").attr("src", img_src);
 		$edit_panel.data("comic_id", comic_id).data("id", id);
 		$edit_panel.data("panel_id", id);
 		$edit_panel.dialog("option", "title", title);
 		$edit_panel.dialog("open");
+	});
+
+	$(".save_panel").live("click", function(){
+		var canvas = $("#canvas")[0];
+		var el_panel_id = "#panels_"+ $edit_panel.data("panel_id");
+		if ($edit_panel.data("imgEffectApplied")){
+			$(el_panel_id).find("img").attr("height", 200)
+																	.attr("width", 300)
+																	.attr("src", canvas.toDataURL());			
+			if ($("#canvas_text").text().match(/\w/)){	
+				$(el_panel_id).find(".text").text($("#canvas_text").text())
+																		.css("left", $("#canvas_text")[0].style.left)
+																		.css("top", $("#canvas_text")[0].style.top)
+																		.show();
+			}
+			$.ajax({
+				type: "put",
+				url:Routes.comicPanelPath(currentComicId(), currentPanelId()),
+				data: {
+					"my_panel": canvas.toDataURL(),
+					"panel[text_x]" : $("#canvas_text")[0].style.left, 
+					"panel[text_y]" : $("#canvas_text")[0].style.top,
+					"panel[text]" : $("#panel_text").val()
+				}
+			});
+			$("#panel_text").val("");
+			$edit_panel.dialog('close');
+		}	else {
+			alert("You can't save a panel without a transformed image.");
+		}
+		
 	});
 
 	$(".delete_panel").click(function(){
