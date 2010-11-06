@@ -1,9 +1,4 @@
 <%if @comic.panels %>
-<% if @comic.panels.first.sort_order >= 0 %>
-	<% panels = @comic.panels.sort_by{|panel| (panel.sort_order) }%>
-<% else %>
-	<% panels = @comic.panels %>
-<% end %>
  <ul class="inline_list sortable" id="<%= @comic.id %>" data-panels-length="<%= @comic.panels.size %>">
   	<%= render :partial=> "panel", :collection => panels %>
  </ul>
