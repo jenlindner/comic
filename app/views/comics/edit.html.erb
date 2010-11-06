@@ -1,6 +1,6 @@
 <%if @comic.panels %>
  <ul class="inline_list sortable" id="<%= @comic.id %>" data-panels-length="<%= @comic.panels.size %>">
-  	<%= render :partial=> "panel", :collection => panels %>
+  	<%= render :partial=> "panel", :collection => @comic.panels %>
  </ul>
 <% end %>
 
