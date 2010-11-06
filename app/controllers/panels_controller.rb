@@ -17,7 +17,7 @@ class PanelsController < ApplicationController
     path = @panel.original_image.path(:medium)
     @photo_artist = PhotoArtist.new(path)
     @photo_artist.comicify(@panel.id)
-    @panel.temp_filename = "public/images/comics/panel_id_#{@panel.id}.png"
+    @panel.temp_filename = "/images/comics/panel_id_#{@panel.id}.png"
     @panel.save
     @panel.update_attributes(params[:panel])
     redirect_to comic_path(@panel.comic)
@@ -27,7 +27,7 @@ class PanelsController < ApplicationController
   def update
     blob, = Datafy::decode_data_uri(params[:my_panel])
     @panel.modified_image_file_name = "panel_id_#{@panel.id}.png"
-    image = QuickMagick::Image.from_blob(blob) 
+    image = Magick::Image.from_blob(blob) 
     image[0].write("public/images/comics/panel_id_#{@panel.id}.png")
     @panel.save
     @panel.update_attributes(params[:panel])

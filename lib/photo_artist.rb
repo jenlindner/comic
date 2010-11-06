@@ -8,11 +8,9 @@ class PhotoArtist
     @original = ImageObject.new(path)
   end
    
- 
-  
   def comicify(panel_id)
-    comicized_image = @original.image.resize("100x100!")
-    comicized_image.save("public/images/comics/panel_id_#{panel_id}.png")
+    comicized_image = @original.image.level(25,225)
+    comicized_image.write("public/images/comics/panel_id_#{panel_id}.png")
   end
 
  
@@ -27,6 +25,19 @@ class PhotoArtist
       end
        Pusher["image_data"].trigger("begin_painting", :y => (y * square_size), :colors => colors_of_row, :square_size => square_size)
     end
+  end
+  
+  def darkest_pixels(color, pixels)
+    intense_pixel = nil
+    intense_rgb = 765
+    pixels.each do |p|
+      current_rgb = p.color
+      if current_rgb < intense_rgb
+        intense_rgb = current_rgb
+        intense_pixel = p
+      end
+    end
+    "rgb(#{intense_pixel.color})"
   end
    
   def rgb_pixels(pixels)

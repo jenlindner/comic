@@ -48,26 +48,9 @@ $(document).ready( function(){
 		$(panel).find(".text").css("left", $(panel).attr("data-panel-text_x") + "px");
 		$(panel).find(".text").css("top", $(panel).attr("data-panel-text_y") + "px");
 	}
-		
-	function createPusher(){
-		var paint = new Pusher('279b70cc663845e74c75', 'image_data');	
-		return paint;
-	}
-
-	function bindPaintToPusher(canvas, paint){
-		canvas = canvas.getContext('2d');
-		paint.bind('begin_painting', function(data){
-			var x = 0;
-			var square_size = data.square_size
-			data.colors.forEach(function(color) {
-				seurrat.color(canvas, x, data.y, color, square_size);
-				x += square_size;
-			});
-		});
-	}
 	
 	function clearCanvas(){
-		$("#canvas")[0].getContext('2d').clearRect(0,0,300,200);
+		$("#canvas").empty();
 		$("#canvas_text").text("")
 										 .hide();
 	}
@@ -187,6 +170,10 @@ $(document).ready( function(){
 				type: "put",
 				url:Routes.comicPanelPath(currentComicId(), currentPanelId()),
 				data: {
+					//okay i have a temp filename image -- i should just save that to modified image name
+					//if it's there, or use original if not. which reminds me, i need to allow people to just add
+					//text without having to modify an image.
+					
 					"my_panel": canvas.toDataURL(),
 					"panel[text_x]" : $("#canvas_text")[0].style.left, 
 					"panel[text_y]" : $("#canvas_text")[0].style.top,
