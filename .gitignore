@@ -1,3 +1,6 @@
 db/development.sqlite3
 log
-public/images/comics/
+log/production.log
+public/images/comics
+app/views/layouts/comics.html.erb
+app/views/layouts/comics_index.html.erb

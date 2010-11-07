@@ -1,0 +1,703 @@
+
+
+Processing ComicsController#index (for 69.210.255.164 at 2010-11-06 12:45:54) [GET]
+Rendering template within layouts/comics_index
+Rendering comics/index
+Completed in 115ms (View: 99, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#create (for 69.210.255.164 at 2010-11-06 12:46:49) [POST]
+  Parameters: {"authenticity_token"=>"ir9CPjhchzwyeHCE3B2PT3nDebGtIMpzLcyn149RHdw=", "comic"=>{"title"=>"new"}, "commit"=>"Submit!"}
+Redirected to http://www.itsallaboutalotofthings.com/comics/7
+Completed in 79ms (DB: 48) | 302 Found [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 12:46:50) [GET]
+  Parameters: {"id"=>"7"}
+
+NoMethodError (undefined method `sort_order' for nil:NilClass):
+  app/controllers/comics_controller.rb:23:in `show'
+  <internal:prelude>:10:in `synchronize'
+  passenger (2.2.15) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.15) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:381:in `block in handle_spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:253:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:247:in `block in spawn_rails_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:10:in `synchronize'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:246:in `spawn_rails_application'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:145:in `spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:278:in `handle_spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /var/www/comic/public/500.html (500 Internal Server Error)
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 12:47:13) [GET]
+  Parameters: {"id"=>"7"}
+
+NoMethodError (undefined method `sort_order' for nil:NilClass):
+  app/controllers/comics_controller.rb:23:in `show'
+  <internal:prelude>:10:in `synchronize'
+  passenger (2.2.15) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.15) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:381:in `block in handle_spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:253:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:247:in `block in spawn_rails_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:10:in `synchronize'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:246:in `spawn_rails_application'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:145:in `spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:278:in `handle_spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /var/www/comic/public/500.html (500 Internal Server Error)
+
+
+Processing ComicsController#index (for 69.210.255.164 at 2010-11-06 12:47:24) [GET]
+Rendering template within layouts/comics_index
+Rendering comics/index
+Completed in 11ms (View: 5, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#index (for 69.210.255.164 at 2010-11-06 12:47:27) [GET]
+Rendering template within layouts/comics_index
+Rendering comics/index
+Completed in 11ms (View: 5, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 12:47:30) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+
+ActionView::TemplateError (comparison of Fixnum with nil failed) on line #2 of app/views/comics/show.html.erb:
+1: <%if @comic.panels %>
+2: <% panels = @comic.panels.sort_by{|panel| (panel.sort_order) }%>
+3:  <ul class="inline_list sortable" id="<%= @comic.id %>" data-panels-length="<%= @comic.panels.size %>">
+4:   	<%= render :partial=> "show_panel", :collection => panels %>
+5:  </ul>
+
+    app/views/comics/show.html.erb:2
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+    passenger (2.2.15) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:381:in `block in handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:163:in `start'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:253:in `block (2 levels) in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:247:in `block in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:246:in `spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:145:in `spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:278:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /var/www/comic/public/500.html (500 Internal Server Error)
+
+
+Processing ComicsController#index (for 69.210.255.164 at 2010-11-06 12:47:33) [GET]
+Rendering template within layouts/comics_index
+Rendering comics/index
+Completed in 10ms (View: 5, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#index (for 69.210.255.164 at 2010-11-06 12:52:25) [GET]
+Rendering template within layouts/comics_index
+Rendering comics/index
+Completed in 36ms (View: 25, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 12:52:29) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+
+ActionView::TemplateError (comparison of Fixnum with nil failed) on line #2 of app/views/comics/show.html.erb:
+1: <%if @comic.panels %>
+2: <% panels = @comic.panels.sort_by{|panel| (panel.sort_order) }%>
+3:  <ul class="inline_list sortable" id="<%= @comic.id %>" data-panels-length="<%= @comic.panels.size %>">
+4:   	<%= render :partial=> "show_panel", :collection => panels %>
+5:  </ul>
+
+    app/views/comics/show.html.erb:2
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+    passenger (2.2.15) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:381:in `block in handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:163:in `start'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:253:in `block (2 levels) in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:247:in `block in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:246:in `spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:145:in `spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:278:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /var/www/comic/public/500.html (500 Internal Server Error)
+
+
+Processing ComicsController#index (for 69.210.255.164 at 2010-11-06 12:56:02) [GET]
+Rendering template within layouts/comics_index
+Rendering comics/index
+Completed in 11ms (View: 6, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 12:56:18) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+
+ActionView::TemplateError (comparison of Fixnum with nil failed) on line #2 of app/views/comics/show.html.erb:
+1: <%if @comic.panels %>
+2: <% panels = @comic.panels.sort_by{|panel| (panel.sort_order) }%>
+3:  <ul class="inline_list sortable" id="<%= @comic.id %>" data-panels-length="<%= @comic.panels.size %>">
+4:   	<%= render :partial=> "show_panel", :collection => panels %>
+5:  </ul>
+
+    app/views/comics/show.html.erb:2
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+    passenger (2.2.15) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:381:in `block in handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:163:in `start'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:253:in `block (2 levels) in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:247:in `block in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:246:in `spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:145:in `spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:278:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /var/www/comic/public/500.html (500 Internal Server Error)
+
+
+Processing ComicsController#index (for 69.210.255.164 at 2010-11-06 13:10:44) [GET]
+Rendering template within layouts/comics_index
+Rendering comics/index
+Completed in 34ms (View: 24, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:10:47) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+
+ActionView::TemplateError (comparison of Fixnum with nil failed) on line #2 of app/views/comics/show.html.erb:
+1: <%if @comic.panels %>
+2: <% panels = @comic.panels.sort_by{|panel| (panel.sort_order) }%>
+3:  <ul class="inline_list sortable" id="<%= @comic.id %>" data-panels-length="<%= @comic.panels.size %>">
+4:   	<%= render :partial=> "show_panel", :collection => panels %>
+5:  </ul>
+
+    app/views/comics/show.html.erb:2
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+    passenger (2.2.15) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:381:in `block in handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:163:in `start'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:253:in `block (2 levels) in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:247:in `block in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:246:in `spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:145:in `spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:278:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /var/www/comic/public/500.html (500 Internal Server Error)
+
+
+Processing ComicsController#index (for 69.210.255.164 at 2010-11-06 13:10:49) [GET]
+Rendering template within layouts/comics_index
+Rendering comics/index
+Completed in 9ms (View: 5, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#index (for 69.210.255.164 at 2010-11-06 13:10:51) [GET]
+Rendering template within layouts/comics_index
+Rendering comics/index
+Completed in 11ms (View: 6, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:10:52) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+
+ActionView::TemplateError (comparison of Fixnum with nil failed) on line #2 of app/views/comics/show.html.erb:
+1: <%if @comic.panels %>
+2: <% panels = @comic.panels.sort_by{|panel| (panel.sort_order) }%>
+3:  <ul class="inline_list sortable" id="<%= @comic.id %>" data-panels-length="<%= @comic.panels.size %>">
+4:   	<%= render :partial=> "show_panel", :collection => panels %>
+5:  </ul>
+
+    app/views/comics/show.html.erb:2
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+    passenger (2.2.15) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:381:in `block in handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:163:in `start'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:253:in `block (2 levels) in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:247:in `block in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:246:in `spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:145:in `spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:278:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /var/www/comic/public/500.html (500 Internal Server Error)
+
+
+Processing ComicsController#index (for 69.210.255.164 at 2010-11-06 13:10:54) [GET]
+Rendering template within layouts/comics_index
+Rendering comics/index
+Completed in 9ms (View: 5, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#index (for 69.210.255.164 at 2010-11-06 13:11:52) [GET]
+Rendering template within layouts/comics_index
+Rendering comics/index
+Completed in 41ms (View: 29, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:11:55) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+
+ActionView::TemplateError (comparison of Fixnum with nil failed) on line #3 of app/views/comics/show.html.erb:
+1: <%if @comic.panels %>
+2: <% if @comic.panels.first.sort_order >= 0 %>
+3: 	<% panels = @comic.panels.sort_by{|panel| (panel.sort_order) }%>
+4: <% else %>
+5: 	<% panels = @comic.panels %>
+6: <% end %>
+
+    app/views/comics/show.html.erb:3
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+    passenger (2.2.15) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:381:in `block in handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:163:in `start'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:253:in `block (2 levels) in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:247:in `block in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:246:in `spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:145:in `spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:278:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /var/www/comic/public/500.html (500 Internal Server Error)
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:14:53) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+
+ActionView::TemplateError (undefined local variable or method `panels' for #<ActionView::Base:0x00000011d31498>) on line #3 of app/views/comics/show.html.erb:
+1: <%if @comic.panels %>
+2:  <ul class="inline_list sortable" id="<%= @comic.id %>" data-panels-length="<%= @comic.panels.size %>">
+3:   	<%= render :partial=> "show_panel", :collection => panels %>
+4:  </ul>
+5: <% end %>
+6: 
+
+    app/views/comics/show.html.erb:3
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+    passenger (2.2.15) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:381:in `block in handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:163:in `start'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:253:in `block (2 levels) in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:247:in `block in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:246:in `spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:145:in `spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:278:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /var/www/comic/public/500.html (500 Internal Server Error)
+
+
+Processing ComicsController#index (for 69.210.255.164 at 2010-11-06 13:14:57) [GET]
+Rendering template within layouts/comics_index
+Rendering comics/index
+Completed in 30ms (View: 25, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:14:59) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+
+ActionView::TemplateError (undefined local variable or method `panels' for #<ActionView::Base:0x00000011d64ff0>) on line #3 of app/views/comics/show.html.erb:
+1: <%if @comic.panels %>
+2:  <ul class="inline_list sortable" id="<%= @comic.id %>" data-panels-length="<%= @comic.panels.size %>">
+3:   	<%= render :partial=> "show_panel", :collection => panels %>
+4:  </ul>
+5: <% end %>
+6: 
+
+    app/views/comics/show.html.erb:3
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+    passenger (2.2.15) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:381:in `block in handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:163:in `start'
+    passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:253:in `block (2 levels) in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:247:in `block in spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+    <internal:prelude>:10:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:246:in `spawn_rails_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:145:in `spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:278:in `handle_spawn_application'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /var/www/comic/public/500.html (500 Internal Server Error)
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:16:35) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 77ms (View: 65, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:16:37) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 31ms (View: 28, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:20:52) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 13ms (View: 8, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:20:53) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 13ms (View: 9, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:20:54) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 10ms (View: 7, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:20:55) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 11ms (View: 8, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:20:56) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 35ms (View: 31, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:20:56) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 10ms (View: 7, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:20:58) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 13ms (View: 9, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:20:59) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 13ms (View: 9, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:21:03) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 14ms (View: 10, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:21:04) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 43ms (View: 37, DB: 5) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#index (for 69.210.255.164 at 2010-11-06 13:21:06) [GET]
+Rendering template within layouts/comics_index
+Rendering comics/index
+Completed in 14ms (View: 8, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#create (for 69.210.255.164 at 2010-11-06 13:21:13) [POST]
+  Parameters: {"authenticity_token"=>"ir9CPjhchzwyeHCE3B2PT3nDebGtIMpzLcyn149RHdw=", "comic"=>{"title"=>"new comic"}, "commit"=>"Submit!"}
+Redirected to http://www.itsallaboutalotofthings.com/comics/8
+Completed in 44ms (DB: 1) | 302 Found [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:21:14) [GET]
+  Parameters: {"id"=>"8"}
+
+NoMethodError (undefined method `sort_order' for nil:NilClass):
+  app/controllers/comics_controller.rb:23:in `show'
+  <internal:prelude>:10:in `synchronize'
+  passenger (2.2.15) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.15) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:381:in `block in handle_spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:253:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:247:in `block in spawn_rails_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:10:in `synchronize'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:246:in `spawn_rails_application'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:145:in `spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:278:in `handle_spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /var/www/comic/public/500.html (500 Internal Server Error)
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:22:54) [GET]
+  Parameters: {"id"=>"8"}
+
+NoMethodError (undefined method `sort_order' for nil:NilClass):
+  app/controllers/comics_controller.rb:23:in `show'
+  <internal:prelude>:10:in `synchronize'
+  passenger (2.2.15) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.15) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:381:in `block in handle_spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/utils.rb:252:in `safe_fork'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.15) lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:253:in `block (2 levels) in spawn_rails_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:247:in `block in spawn_rails_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:80:in `block in synchronize'
+  <internal:prelude>:10:in `synchronize'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:246:in `spawn_rails_application'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:145:in `spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/spawn_manager.rb:278:in `handle_spawn_application'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.15) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering /var/www/comic/public/500.html (500 Internal Server Error)
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:23:13) [GET]
+  Parameters: {"id"=>"8"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 15ms (View: 9, DB: 1) | 200 OK [http://www.itsallaboutalotofthings.com/comics/8]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:23:14) [GET]
+  Parameters: {"id"=>"8"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 5ms (View: 3, DB: 1) | 200 OK [http://www.itsallaboutalotofthings.com/comics/8]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:23:40) [GET]
+  Parameters: {"id"=>"8"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 4ms (View: 3, DB: 1) | 200 OK [http://www.itsallaboutalotofthings.com/comics/8]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:42:07) [GET]
+  Parameters: {"id"=>"8"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 16ms (View: 9, DB: 1) | 200 OK [http://www.itsallaboutalotofthings.com/comics/8]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:42:08) [GET]
+  Parameters: {"id"=>"8"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://www.itsallaboutalotofthings.com/comics/8]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:42:08) [GET]
+  Parameters: {"id"=>"8"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://www.itsallaboutalotofthings.com/comics/8]
+
+
+Processing ComicsController#index (for 69.210.255.164 at 2010-11-06 13:42:19) [GET]
+Rendering template within layouts/comics_index
+Rendering comics/index
+Completed in 54ms (View: 49, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:42:28) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 12ms (View: 9, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:42:29) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 11ms (View: 7, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 13:42:29) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 16:41:12) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 38ms (View: 29, DB: 3) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 16:41:13) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 32ms (View: 29, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
+
+
+Processing ComicsController#show (for 69.210.255.164 at 2010-11-06 16:41:13) [GET]
+  Parameters: {"id"=>"5"}
+Rendering template within layouts/comics
+Rendering comics/show
+Completed in 12ms (View: 8, DB: 2) | 200 OK [http://www.itsallaboutalotofthings.com/comics/5]
