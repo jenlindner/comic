@@ -4,6 +4,6 @@ class AddTextColumnToPanels < ActiveRecord::Migration
   end           
                 
   def self.down 
-    add_column :panels, :text
+    remove_column :panels, :text
   end                
 end
