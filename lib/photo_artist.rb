@@ -1,10 +1,8 @@
-require 'pusher'
 require 'image_object'
 
 class PhotoArtist
  
   def initialize(path)
-    pusher = PusherCredentials.new
     @original = ImageObject.new(path)
   end
    

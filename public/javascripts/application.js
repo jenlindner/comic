@@ -41,8 +41,7 @@ $(document).ready( function(){
 
 	var $add_text = $("#add_text_dialog").dialog({width: 300, height: 240, autoOpen: false, modal: true});
 	var $add_panel = $("#new_panel_dialog").dialog({autoOpen: false,  modal: true});
-	var $edit_panel = $("#edit_panel_dialog").dialog( {minWidth: 644, width: 644, height: 322, close: function(){ clearCanvas();}, autoOpen: false,  modal: true} );
-	var paint = createPusher();
+	var $edit_panel = $("#edit_panel_dialog").dialog( {width: 660, height: 322, close: function(){ clearCanvas();}, autoOpen: false,  modal: true} );
 	
 	function getPanelTextPosition(panel){
 		$(panel).find(".text").css("left", $(panel).attr("data-panel-text_x") + "px");
@@ -55,7 +54,7 @@ $(document).ready( function(){
 										 .hide();
 	}
 	
-	function applyEffect(route){
+	function applyEffect(route, route2){
 		imgEffectApplied();
 		var panel = $("#edit_panel_dialog img");
 		var href = route(currentComicId(), currentPanelId());
@@ -63,10 +62,14 @@ $(document).ready( function(){
 			type: "post",
 			url: href,
 			dataType: "text",
-			success: function(){
+			success: function(data){
 				var panel_id = "#panels_" + currentPanelId();
-				var src = $(panel_id).attr("data-image-file");
-				$("#canvas").append("<img src='" + src + "' border=0 />");
+				var href2 = route2(currentComicId(), currentPanelId());
+				$.get(href2, function(stringData){
+							console.log(stringData);
+							var src = stringData;
+						  $("#canvas").append("<img src='" + src + "' border=0 />");	
+						});
 			}
 		});
 	}
@@ -84,16 +87,8 @@ $(document).ready( function(){
 	});
 	
 	$(".comicify").click(function(){
-		applyEffect(Routes.comicPanelComicifyPath);
+		applyEffect(Routes.comicPanelComicifyPath, Routes.modifiedImagePath);
 	});
-
-	$(".colorize").click(function(){
-		applyEffect(Routes.comicPanelColorizePath);
-	});
-	
-	$(".charcoal").click(function(){
-		applyEffect(Routes.comicPanelCharcoalPath);
-	});	
 
 	$(".clear_canvas").click(function(){
 		clearCanvas();
@@ -159,7 +154,7 @@ $(document).ready( function(){
 		if ($edit_panel.data("imgEffectApplied")){
 			$(el_panel_id).find("img").attr("height", 200)
 																	.attr("width", 300)
-																	.attr("src", canvas.toDataURL());			
+																	.attr("src", $("#canvas img").attr("src"));			
 			if ($("#canvas_text").text().match(/\w/)){	
 				$(el_panel_id).find(".text").text($("#canvas_text").text())
 																		.css("left", $("#canvas_text")[0].style.left)
@@ -173,8 +168,6 @@ $(document).ready( function(){
 					//okay i have a temp filename image -- i should just save that to modified image name
 					//if it's there, or use original if not. which reminds me, i need to allow people to just add
 					//text without having to modify an image.
-					
-					"my_panel": canvas.toDataURL(),
 					"panel[text_x]" : $("#canvas_text")[0].style.left, 
 					"panel[text_y]" : $("#canvas_text")[0].style.top,
 					"panel[text]" : $("#panel_text").val()
