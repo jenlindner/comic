@@ -23,12 +23,13 @@ class PanelsController < ApplicationController
     redirect_to comic_path(@panel.comic)
   end
  
+ def modified_image
+   @panel.temp_filename
+   render :text => "#{@panel.temp_filename}"
+ end
 
   def update
-    blob, = Datafy::decode_data_uri(params[:my_panel])
     @panel.modified_image_file_name = "panel_id_#{@panel.id}.png"
-    image = Magick::Image.from_blob(blob) 
-    image[0].write("public/images/comics/panel_id_#{@panel.id}.png")
     @panel.save
     @panel.update_attributes(params[:panel])
 
