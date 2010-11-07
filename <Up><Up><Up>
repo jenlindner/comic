@@ -7,8 +7,8 @@ class PhotoArtist
   end
    
   def comicify(panel_id)
-    @original.image.level(25,225)
-    @original.image.write("#{RAILS_ROOT}/public/images/comics/panel_id_#{panel_id}.png")
+    comicized_image = @original.image.level(25,225)
+    @original.image.write("public/images/comic/panel_id_#{panel_id}.png")
   end
 
  

@@ -4,6 +4,7 @@ class PanelsController < ApplicationController
   
   def create
     @panel = Panel.new(params[:panel])
+    puts @panel.temp_filename = "temp"
     puts @panel.save!
     if @panel.save
       flash[:original_id] = @panel.id
