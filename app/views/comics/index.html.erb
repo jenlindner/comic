@@ -1,3 +1,12 @@
+<p>What makes street art so irrestible? The audacity? The razor-sharp social commentary? Maybe it's the pretty pictures themselves.</p>
+
+<p>Or is it that in public, some things can only be said with pictures?</p>
+
+<p>Yes. Of course.</p>
+
+<p>Graffiti goes back to the very beginning of writing, in ancient Sumeria. Writing was invented for kings, to keep track of their financial transactions. By a special class of workers who were the only ones to ever learn the bizarre practice... who clearly also invented graffiti. To complain about taxes.</p>
+<p> That's where we get "the writing is on the wall." Because after all, it always is.</p>
+
 <ul class="inline_list index">
 <% @comic_cover_set.each do |c| %>
 	<li>
@@ -19,7 +28,7 @@
 
 <div class="clear">
 <% form_for Comic.new, :url => comics_path do |f| %>
-	<%= f.label :title, "Create a Comic" %>
+	<%= f.label :title, "Create Your Own Public Comic" %>
 	<%= f.text_field :title %> <span id="comic_title_error">You Must Give Your Comic a Title.</span>
 	<%= f.submit "Submit!", :class=> "default_button"%>	
 <% end %>

@@ -219,7 +219,7 @@ input:focus {
 	font-size: 2em;
 }
 
-.site_title a{
+.site_title a, #edit_comic{
 	color: #f93;
 }
 .right_link{
@@ -269,7 +269,7 @@ a:hover img.faded{
 	-webkit-opacity: 1.0;	
 }
 
-.site_title a:hover, .link:hover{
+.site_title a:hover, #add_panel:hover, #edit_comic:hover{
 	color:#c60;
 	background-color: #fff;
 }
