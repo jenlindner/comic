@@ -2,7 +2,7 @@ class ComicsController < ApplicationController
   
   def index
     @comics = Comic.all
-    @comic_cover_set = @comics.select {|comic| comic.panels.size >= 4 }
+    @comic_cover_set = @comics.select {|comic| comic.panels.size > 0 }
     render :layout => "comics_index"
   end
   
@@ -25,6 +25,7 @@ class ComicsController < ApplicationController
   
   def edit
     @comic = Comic.find(params[:id])
+    @panels = @comic.panels.all(:order => :sort_order)
   end
   
   def reorder

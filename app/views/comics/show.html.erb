@@ -1,6 +1,11 @@
+<div class="main_container_show">
+	<h1>
+		<span class="site_title"><%= link_to "Comics:", comics_path %> 
+		<%= @comic ?  @comic.title : "" %></span>
+	</h1>
 <%if @comic.panels %>
  <ul class="inline_list sortable" id="<%= @comic.id %>" data-panels-length="<%= @comic.panels.size %>">
-  	<%= render :partial=> "show_panel", :collection => @comic.panels %>
+  	<%= render :partial=> "show_panel", :collection => @panels %>
  </ul>
 <% end %>
 
@@ -13,8 +18,9 @@
 </div>
 
 <p class='link'>
-	<span id="add_panel"> Add New Panel to <%= @comic.title %></span>
-	<%= link_to "Edit #{@comic.title}", edit_comic_path(@comic), :id=>"edit_comic" %></p>
+	<span id="add_panel"> Add New Panel to "<%= @comic.title %>"</span>  |  
+	<%= link_to "Edit \"#{@comic.title}\"", edit_comic_path(@comic), :id=>"edit_comic" %>
+</p>
 
 
 <div id="edit_panel_dialog" class="dialog">

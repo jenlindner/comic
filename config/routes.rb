@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
- map.root :controller => :comics 
+ map.root :controller => :streetart, :action => :home 
  
  map.resources :comics, :member => {:reorder => :post} do |comic| 
     comic.resources :panels, :member => { :comicify => :post,  

@@ -1,22 +1,24 @@
 $(document).ready( function(){
-	
-	function hideText(){
-		$('.text').each(function(index, text){
+	var comicMaker = {
+		hideText: function(){
+			$('.text').each(function(index, text){
 			if(!$(text).text().match(/\w/)){
 				$(text).hide();
 			}
-		});
-	}
+			});			
+		},
+		
+		currentComicId: function(){
+			var comic_id = $edit_panel.data("comic_id");
+			return comic_id;
+		},
 	
-	function currentComicId(){
-		var comic_id = $edit_panel.data("comic_id");
-		return comic_id;
-	}
-	
-	function currentPanelId(){
-		var	panel_id = $edit_panel.data("id");
-		return panel_id;
-	}
+		currentPanelId: function(){
+			var panel_id = $edit_panel.data("id");
+			return panel_id;
+		}
+	};	
+		
 	
 	function addPanelLinkDisplay(){
 		var panels = $(".sortable").attr("data-panels-length");
@@ -37,7 +39,7 @@ $(document).ready( function(){
 	
 	setPanelHeight();
 	addPanelLinkDisplay();
-	hideText();
+	comicMaker.hideText();
 
 	var $add_text = $("#add_text_dialog").dialog({width: 300, height: 240, autoOpen: false, modal: true});
 	var $add_panel = $("#new_panel_dialog").dialog({autoOpen: false,  modal: true});
@@ -57,14 +59,14 @@ $(document).ready( function(){
 	function applyEffect(route, route2){
 		imgEffectApplied();
 		var panel = $("#edit_panel_dialog img");
-		var href = route(currentComicId(), currentPanelId());
+		var href = route(comicMaker.currentComicId(), comicMaker.currentPanelId());
 		$.ajax({
 			type: "post",
 			url: href,
 			dataType: "text",
 			success: function(data){
-				var panel_id = "#panels_" + currentPanelId();
-				var href2 = route2(currentComicId(), currentPanelId());
+				var panel_id = "#panels_" + comicMaker.currentPanelId();
+				var href2 = route2(comicMaker.currentComicId(), comicMaker.currentPanelId());
 				$.get(href2, function(stringData){
 							console.log(stringData);
 							var src = stringData;
@@ -119,7 +121,7 @@ $(document).ready( function(){
 		}else if ($("#panel_text").val().length > 50){
 			alert("A panel's text cannot exceed 50 characters.");
 		}else{
-			var panel_id = "#panels_" + currentPanelId();
+			var panel_id = "#panels_" + comicMaker.currentPanelId();
 	
 			$(panel_id).find(".text").text($("#panel_text").val());
 			$("#canvas_text").draggable({ containment: 'parent'})
@@ -163,7 +165,7 @@ $(document).ready( function(){
 			}
 			$.ajax({
 				type: "put",
-				url:Routes.comicPanelPath(currentComicId(), currentPanelId()),
+				url:Routes.comicPanelPath(comicMaker.currentComicId(), comicMaker.currentPanelId()),
 				data: {
 					//okay i have a temp filename image -- i should just save that to modified image name
 					//if it's there, or use original if not. which reminds me, i need to allow people to just add
