@@ -9,14 +9,18 @@ $(document).ready( function(){
 		},
 		
 		currentComicId: function(){
-			var comic_id = $edit_panel.data("comic_id");
+			var comic_id = comicMaker.$edit_panel.data("comic_id");
 			return comic_id;
 		},
 	
 		currentPanelId: function(){
-			var panel_id = $edit_panel.data("id");
+			var panel_id = comicMaker.$edit_panel.data("id");
 			return panel_id;
-		}
+		},
+		$add_text: $("#add_text_dialog").dialog({width: 300, height: 240, autoOpen: false, modal: true}),
+		$add_panel: $("#new_panel_dialog").dialog({autoOpen: false,  modal: true}),
+		$edit_panel: $("#edit_panel_dialog").dialog( {width: 660, height: 322, close: function(){ clearCanvas();}, autoOpen: false,  modal: true} )
+
 	};	
 		
 	
@@ -28,7 +32,7 @@ $(document).ready( function(){
 	}
 	
 	function imgEffectApplied(){
-		$edit_panel.data("imgEffectApplied", true);
+		comicMaker.$edit_panel.data("imgEffectApplied", true);
 	}
 	
 	function setPanelHeight(){
@@ -41,10 +45,6 @@ $(document).ready( function(){
 	addPanelLinkDisplay();
 	comicMaker.hideText();
 
-	var $add_text = $("#add_text_dialog").dialog({width: 300, height: 240, autoOpen: false, modal: true});
-	var $add_panel = $("#new_panel_dialog").dialog({autoOpen: false,  modal: true});
-	var $edit_panel = $("#edit_panel_dialog").dialog( {width: 660, height: 322, close: function(){ clearCanvas();}, autoOpen: false,  modal: true} );
-	
 	function getPanelTextPosition(panel){
 		$(panel).find(".text").css("left", $(panel).attr("data-panel-text_x") + "px");
 		$(panel).find(".text").css("top", $(panel).attr("data-panel-text_y") + "px");
@@ -112,7 +112,7 @@ $(document).ready( function(){
 	});
 	
 	$(".add_text").click(function(){
-		$add_text.dialog("open");
+		comicMaker.$add_text.dialog("open");
 	});
 	
 	$("#add_text_form").submit(function(){
@@ -127,33 +127,33 @@ $(document).ready( function(){
 			$("#canvas_text").draggable({ containment: 'parent'})
 											 .text($("#panel_text").val())	
 											 .show()
-			$add_text.dialog("close");
+			comicMaker.$add_text.dialog("close");
 		}
 		return false;
 	});
 	
 	
 	$("#add_panel").click(function(){
-		$add_panel.dialog("open");
+		comicMaker.$add_panel.dialog("open");
 	});
 	
 	$(".edit_panel").click(function(){
-		$edit_panel.data("imgEffectApplied", false);
+		comicMaker.$edit_panel.data("imgEffectApplied", false);
 		var comic_id = $(this).parent().parent().attr("data-comic-id");
 		var id = $(this).parent().parent().attr("data-panel-id");
 		var title = "Add Effects and Text to Your Panel"; 
 		var img_src = Routes.comicPanelImagePath(comic_id, id);
 		$("#edit_panel_dialog img").attr("src", img_src);
-		$edit_panel.data("comic_id", comic_id).data("id", id);
-		$edit_panel.data("panel_id", id);
-		$edit_panel.dialog("option", "title", title);
-		$edit_panel.dialog("open");
+		comicMaker.$edit_panel.data("comic_id", comic_id).data("id", id);
+		comicMaker.$edit_panel.data("panel_id", id);
+		comicMaker.$edit_panel.dialog("option", "title", title);
+		comicMaker.$edit_panel.dialog("open");
 	});
 
 	$(".save_panel").live("click", function(){
 		var canvas = $("#canvas")[0];
-		var el_panel_id = "#panels_"+ $edit_panel.data("panel_id");
-		if ($edit_panel.data("imgEffectApplied")){
+		var el_panel_id = "#panels_"+ comicMaker.$edit_panel.data("panel_id");
+		if (comicMaker.$edit_panel.data("imgEffectApplied")){
 			$(el_panel_id).find("img").attr("height", 200)
 																	.attr("width", 300)
 																	.attr("src", $("#canvas img").attr("src"));			
@@ -167,8 +167,6 @@ $(document).ready( function(){
 				type: "put",
 				url:Routes.comicPanelPath(comicMaker.currentComicId(), comicMaker.currentPanelId()),
 				data: {
-					//okay i have a temp filename image -- i should just save that to modified image name
-					//if it's there, or use original if not. which reminds me, i need to allow people to just add
 					//text without having to modify an image.
 					"panel[text_x]" : $("#canvas_text")[0].style.left, 
 					"panel[text_y]" : $("#canvas_text")[0].style.top,
@@ -176,7 +174,7 @@ $(document).ready( function(){
 				}
 			});
 			$("#panel_text").val("");
-			$edit_panel.dialog('close');
+			comicMaker.$edit_panel.dialog('close');
 		}	else {
 			alert("You can't save a panel without a transformed image.");
 		}

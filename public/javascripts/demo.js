@@ -14,11 +14,17 @@ to find out which id and image is supposed to go in the object? set an onclick h
 		setClickListener: function(attribute){
 			$("#foo").click(function(){
 				 var bar = $("body").attr("class");
-				alert(bar); 
+				//alert(bar);
+				$("#webpage img").attr("src", "/images/comics/originals/9/medium/woman_power.jpg");		
+			//$("#retina").css("background-image", "url(/images/woman_power.jpg)");
+				$("#retina").css("background-image", "url(images/comics/originals/9/original/woman_power.jpg)");
 			});
-		},
+		}
+		//changeWebPage: function(){
+		//	$("#webpage img").attr("src", "/images/woman_power.jpg");		
+		//}
 	};
-
+/*
 	var streetPhotos = {
 		audacity: "audacity",
 		lightheartedness: "lightheartedness",
@@ -26,11 +32,11 @@ to find out which id and image is supposed to go in the object? set an onclick h
 		socialCommentary: "socialCommentary",
 		onlyInPublic: "onlyInPublic"
 	};
-	
+*/	
 	app.setWebpage("my_mama");
 	app.setClickListener();
 	
-	var left	= 0,
+		var left	= 0,
 		top		= 0,
 		sizes	= { retina: { width:190, height:190 }, webpage:{ width:400, height:265 } },
 		webpage	= $('#webpage'),
@@ -39,7 +45,7 @@ to find out which id and image is supposed to go in the object? set an onclick h
 
 	if(navigator.userAgent.indexOf('Chrome')!=-1)
 	{
-		/*	Applying a special chrome curosor,
+		/*	Applying a special chrome cursor,
 			as it fails to render completely blank curosrs. */
 			
 		retina.addClass('chrome');
