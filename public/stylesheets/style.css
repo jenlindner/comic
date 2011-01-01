@@ -1,3 +1,4 @@
+
 body { background-color: #000;}
 
 ul, ul .panel_buttons {
@@ -10,6 +11,9 @@ h1{
 	text-align: center;
 }
 
+.sm{
+	font-size: .3em;
+}
 ul .panel_buttons {
 	margin: .1em auto;
 	height: 2em;
@@ -74,8 +78,8 @@ a:hover { color: #fff; background-color:#f90; }
 #canvas{
 	border: 2px solid #000; 
 	padding:0;
-	height: 200px;
-	width:300px;
+	height: 266px;
+	width:400px;
 	float: left;
 }
 
@@ -84,14 +88,14 @@ a:hover { color: #fff; background-color:#f90; }
 	top: 0px;
 	margin: .9em auto;
 	height: 2em;
-	width: 35em;
+	width: 50em;
 	padding-left:0;
 }
 
 .workspace{
 	position: relative;
 	top: 0px;
-	height: 200px;
+	height: 266px;
 }
 
 img.drag{
@@ -112,7 +116,7 @@ img.drag{
 	padding-bottom: 37px;
 }
 ul.workspace_controllers.inline_list li{
-	height: 60px;
+	height: 48px;
 }
 
 
@@ -217,7 +221,7 @@ input:focus {
 	height: 36em;
 }
 .main_container_edit{
-	height: 40em;
+	height: 41em;
 }
 .clear{
 	clear:both;
@@ -226,8 +230,8 @@ input:focus {
 #modified_image_container{
 	float:right;
 	position:relative;
-	width:300px;
-	height: 200px;
+	width:400px;
+	height: 266px;
 }
 .site_title{
 	font-size: 2em;
@@ -245,14 +249,25 @@ label{
 .right_link{
 	float:right;
 }
+#left{
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	cursor: pointer;
+	z-index: 5;
+	padding: .2em 1em;
+}
 
-#foo{
+#right{
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
-	color:#f93;
-}
-.link{
+	z-index: 5;
+	cursor: pointer;
+	padding: .2em 1em;
+	}
+	
+.link{	
 	clear:both;
 	font-size: 1em;
 	cursor: pointer;
@@ -309,10 +324,10 @@ a:hover img.faded{
 	width: 630px;
 }
 
-#webpage{
+#artWindow{
 	/* Contains the webpage screenshot */
 	width:400px;
-	height:265px;
+	height:266px;
 	position:absolute;
 	top:50%;
 	left:50%;
@@ -356,5 +371,7 @@ a:hover img.faded{
 	bottom: 0;
 	display: block;
 	width: 100%;
+	z-index: 1;
+	margin: 0 auto;
 	text-align: center;
 }

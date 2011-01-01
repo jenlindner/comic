@@ -19,7 +19,7 @@ $(document).ready( function(){
 		},
 		$add_text: $("#add_text_dialog").dialog({width: 300, height: 240, autoOpen: false, modal: true}),
 		$add_panel: $("#new_panel_dialog").dialog({autoOpen: false,  modal: true}),
-		$edit_panel: $("#edit_panel_dialog").dialog( {width: 660, height: 322, close: function(){ clearCanvas();}, autoOpen: false,  modal: true} )
+		$edit_panel: $("#edit_panel_dialog").dialog( {width: 885, height: 382, close: function(){ clearCanvas();}, autoOpen: false,  modal: true} )
 
 	};	
 		
@@ -154,8 +154,8 @@ $(document).ready( function(){
 		var canvas = $("#canvas")[0];
 		var el_panel_id = "#panels_"+ comicMaker.$edit_panel.data("panel_id");
 		if (comicMaker.$edit_panel.data("imgEffectApplied")){
-			$(el_panel_id).find("img").attr("height", 200)
-																	.attr("width", 300)
+			$(el_panel_id).find("img").attr("height", 266)
+																	.attr("width", 400)
 																	.attr("src", $("#canvas img").attr("src"));			
 			if ($("#canvas_text").text().match(/\w/)){	
 				$(el_panel_id).find(".text").text($("#canvas_text").text())

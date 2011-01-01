@@ -3,7 +3,7 @@ class Panel < ActiveRecord::Base
   
   has_attached_file :original_image, 
                     :path => "#{RAILS_ROOT}/public/images/comics/originals/:id/:style/:filename", 
-                    :styles => { :medium => "300x200>", :thumb => "100x90>" },
+                    :styles => { :medium => "400x266>", :thumb => "100x67>" },
                     :url => "/images/comics/originals/:id/:style/:filename"
                     
                     
